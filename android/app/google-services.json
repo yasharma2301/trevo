@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "266982561354",
+    "firebase_url": "https://trevo-50bb7.firebaseio.com",
+    "project_id": "trevo-50bb7",
+    "storage_bucket": "trevo-50bb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266982561354:android:58df3272922d012e1778b3",
+        "android_client_info": {
+          "package_name": "com.example.trevo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266982561354-sifkchmc13qqfkc5legfe0bg019g0isc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzAt1l5VJJrT2JbatWZ2L1DYdEMAYiA0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266982561354-sifkchmc13qqfkc5legfe0bg019g0isc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

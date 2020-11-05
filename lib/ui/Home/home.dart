@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trevo/ui/onBoard/onBoard.dart';
+import 'package:trevo/shared/colors.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,9 +9,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        child: OnBoard(),
+    return Container(
+      color: Skin,
+      child: Center(
+        child: Text('HOME'),
       ),
     );
   }

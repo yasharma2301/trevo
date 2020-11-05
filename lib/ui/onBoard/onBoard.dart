@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/shared/delayed_animation.dart';
 import 'package:trevo/ui/login/login.dart';
+import 'package:trevo/ui/login/signup.dart';
 
 class OnBoard extends StatefulWidget {
   @override
@@ -47,13 +48,16 @@ class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin 
             children: [
               DelayedAnimation(
                 delay: 200,
-                child: Container(
-                  height: 160,
-                  width: 160,
-                  child: FlareActor('assets/botra.flr',
-                      alignment: Alignment.center,
-                      fit: BoxFit.contain,
-                      animation: "Alarm"),
+                child: Hero(
+                  tag: 'TrevoIcon',
+                  child: Container(
+                    height: 160,
+                    width: 160,
+                    child: FlareActor('assets/botra.flr',
+                        alignment: Alignment.center,
+                        fit: BoxFit.contain,
+                        animation: "Alarm"),
+                  ),
                 ),
               ),
               SizedBox(
@@ -136,7 +140,7 @@ class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin 
                       ),
                       child: Center(
                         child: Text(
-                          'Let\'s start!',
+                          'Hi Trevo!',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -144,6 +148,22 @@ class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin 
                         ),
                       ),
                     ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20,),
+              DelayedAnimation(
+                delay: 1400,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignUp()));
+                  },
+                  child: Text(
+                    'I already have an account!',
+                    style: TextStyle(
+                        color: Teal,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18),
                   ),
                 ),
               ),

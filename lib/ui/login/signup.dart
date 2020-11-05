@@ -2,16 +2,17 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/shared/globalFunctions.dart';
-import 'package:trevo/ui/login/signup.dart';
 
-class Login extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
+class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+
   double _scale;
   AnimationController _controller;
 
@@ -25,8 +26,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       lowerBound: 0.0,
       upperBound: 0.1,
     )..addListener(() {
-        setState(() {});
-      });
+      setState(() {});
+    });
     super.initState();
   }
 
@@ -57,19 +58,17 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 Hero(
                   tag: 'TrevoIcon',
                   child: Container(
-                    height: 160,
-                    width: 160,
+                    height: 150,
+                    width: 150,
                     child: FlareActor('assets/botra.flr',
                         alignment: Alignment.center,
                         fit: BoxFit.contain,
                         animation: "Alarm"),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10,),
                 Text(
-                  'Welcome!',
+                  'Register',
                   style: TextStyle(
                       color: Teal.withOpacity(0.8),
                       fontWeight: FontWeight.w400,
@@ -90,9 +89,26 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     controller: _emailController,
                     style: TextStyle(color: BottleGreen),
                     decoration: InputDecoration(
-                        icon: Icon(Icons.email,color: Teal,),
                         border: InputBorder.none,
                         hintText: "Enter Email",
+                        hintStyle: TextStyle(color: Teal, fontSize: 17)),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: White.withOpacity(0.8)),
+                  child: TextField(
+                    onChanged: (value) {},
+                    controller: _nameController,
+                    style: TextStyle(color: BottleGreen),
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Enter Name",
                         hintStyle: TextStyle(color: Teal, fontSize: 17)),
                   ),
                 ),
@@ -109,30 +125,13 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     controller: _passwordController,
                     style: TextStyle(color: BottleGreen),
                     decoration: InputDecoration(
-                      icon: Icon(Icons.vpn_key,color: Teal,),
                         border: InputBorder.none,
                         hintText: "Enter Password",
                         hintStyle: TextStyle(color: Teal, fontSize: 17)),
                   ),
                 ),
                 SizedBox(
-                  height: 15,
-                ),
-                GestureDetector(
-                  onTap: (){},
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                          color: Teal,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
+                  height: 30,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -164,7 +163,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       ),
                       child: Center(
                         child: Text(
-                          'Log Me In!',
+                          'Sign Up',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -179,12 +178,12 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 ),
                 GestureDetector(
                   onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SignUp()));
+//                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SignUp()));
                   },
                   child: Text(
-                    'Don\'t have an account? Sign Up.',
+                    'Terms and Conditions',
                     style: TextStyle(
-                        color: Teal, fontWeight: FontWeight.w400, fontSize: 16),
+                        color: Teal, fontWeight: FontWeight.w400, fontSize: 15,decoration: TextDecoration.underline),
                   ),
                 ),
                 SizedBox(
@@ -198,17 +197,18 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     );
   }
 
-  void login(){
+
+  void signUp(){
     String email = _emailController.text;
     String password = _passwordController.text;
     if(email==null || password==null){
-        // Fields cannot be empty
+      // Fields cannot be empty
     }else if(!emailRegexPass(email)){
       // input a valid email
     }else if(!passwordRegexPass(password)){
       // password should be longer than 6 characters
     }else{
-      // Login
+      // Signup
     }
   }
 
