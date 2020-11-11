@@ -1,5 +1,6 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/shared/globalFunctions.dart';
@@ -11,7 +12,7 @@ class SignUp extends StatefulWidget {
   _SignUpState createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
+class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
@@ -29,8 +30,8 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
       lowerBound: 0.0,
       upperBound: 0.1,
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
     super.initState();
   }
 
@@ -42,7 +43,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    final loginProvider = Provider.of<AuthService>(context);
+    final loginProvider = Provider.of<AuthService>(context,listen: false);
     _scale = 1 - _controller.value;
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
@@ -70,7 +71,9 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
                         animation: "Alarm"),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Text(
                   'Register',
                   style: TextStyle(
@@ -138,20 +141,23 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
                   height: 30,
                 ),
                 GestureDetector(
-                  onTap:(){
+                  onTap: () {
                     String email = _emailController.text;
                     String password = _passwordController.text;
                     String name = _nameController.text;
-                    if(email==null || password==null){
+                    if (email == null || password == null) {
                       // Fields cannot be empty
-                    }else if(!emailRegexPass(email)){
+                    } else if (!emailRegexPass(email)) {
                       // input a valid email
-                    }else if(!passwordRegexPass(password)){
+                    } else if (!passwordRegexPass(password)) {
                       // password should be longer than 6 characters
-                    }else{
-                      loginProvider.signUpWithEmailAndPassword(email, password,name).then((value) =>{
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()))
-                      });
+                    } else {
+                      loginProvider
+                          .signUpWithEmailAndPassword(email, password, name)
+                          .then((value) => {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Home()))
+                              });
                     }
                   },
                   onTapDown: _onTapDown,
@@ -179,13 +185,18 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
                             tileMode: TileMode.repeated),
                       ),
                       child: Center(
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
+                        child: loginProvider.loading == true
+                            ? SpinKitCircle(
+                                color: LightGrey,
+                                size: 35,
+                              )
+                            : Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
                       ),
                     ),
                   ),
@@ -194,13 +205,16 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
 //                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SignUp()));
                   },
                   child: Text(
                     'Terms and Conditions',
                     style: TextStyle(
-                        color: Teal, fontWeight: FontWeight.w400, fontSize: 15,decoration: TextDecoration.underline),
+                        color: Teal,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 15,
+                        decoration: TextDecoration.underline),
                   ),
                 ),
                 SizedBox(
@@ -214,17 +228,16 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin{
     );
   }
 
-
-  void signUp(){
+  void signUp() {
     String email = _emailController.text;
     String password = _passwordController.text;
-    if(email==null || password==null){
+    if (email == null || password == null) {
       // Fields cannot be empty
-    }else if(!emailRegexPass(email)){
+    } else if (!emailRegexPass(email)) {
       // input a valid email
-    }else if(!passwordRegexPass(password)){
+    } else if (!passwordRegexPass(password)) {
       // password should be longer than 6 characters
-    }else{
+    } else {
       // Signup
     }
   }

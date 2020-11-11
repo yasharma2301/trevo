@@ -1,5 +1,6 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:trevo/main.dart';
 import 'package:trevo/shared/colors.dart';
@@ -96,7 +97,10 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     controller: _emailController,
                     style: TextStyle(color: BottleGreen),
                     decoration: InputDecoration(
-                        icon: Icon(Icons.email,color: Teal,),
+                        icon: Icon(
+                          Icons.email,
+                          color: Teal,
+                        ),
                         border: InputBorder.none,
                         hintText: "Enter Email",
                         hintStyle: TextStyle(color: Teal, fontSize: 17)),
@@ -115,7 +119,10 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     controller: _passwordController,
                     style: TextStyle(color: BottleGreen),
                     decoration: InputDecoration(
-                      icon: Icon(Icons.vpn_key,color: Teal,),
+                        icon: Icon(
+                          Icons.vpn_key,
+                          color: Teal,
+                        ),
                         border: InputBorder.none,
                         hintText: "Enter Password",
                         hintStyle: TextStyle(color: Teal, fontSize: 17)),
@@ -125,7 +132,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   height: 15,
                 ),
                 GestureDetector(
-                  onTap: (){},
+                  onTap: () {},
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Text(
@@ -141,19 +148,22 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   height: 15,
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     String email = _emailController.text;
                     String password = _passwordController.text;
-                    if(email==null || password==null){
+                    if (email == null || password == null) {
                       // Fields cannot be empty
-                    }else if(!emailRegexPass(email)){
+                    } else if (!emailRegexPass(email)) {
                       // input a valid email
-                    }else if(!passwordRegexPass(password)){
+                    } else if (!passwordRegexPass(password)) {
                       // password should be longer than 6 characters
-                    }else{
-                      loginProvider.signInWithEmailAndPassword(email, password).then((value) =>{
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()))
-                      });
+                    } else {
+                      loginProvider
+                          .signInWithEmailAndPassword(email, password)
+                          .then((value) => {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Home()))
+                              });
                     }
                   },
                   onTapDown: _onTapDown,
@@ -181,13 +191,18 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                             tileMode: TileMode.repeated),
                       ),
                       child: Center(
-                        child: Text(
-                          'Log Me In!',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
+                        child: loginProvider.loading == true
+                            ? SpinKitCircle(
+                                color: LightGrey,
+                                size: 35,
+                              )
+                            : Text(
+                                'Log Me In!',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
                       ),
                     ),
                   ),
@@ -196,8 +211,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SignUp()));
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => SignUp()));
                   },
                   child: Text(
                     'Don\'t have an account? Sign Up.',
@@ -215,7 +231,6 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       ),
     );
   }
-
 
   void _onTapDown(TapDownDetails details) {
     _controller.forward();

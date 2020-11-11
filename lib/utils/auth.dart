@@ -4,13 +4,9 @@ import 'package:trevo/utils/databaseService.dart';
 
 class AuthService with ChangeNotifier{
   final FirebaseAuth _auth;
-  bool loading = true;
+  bool loading = false;
 
   AuthService(this._auth);
-
-  void x(){
-    _auth.currentUser.uid;
-  }
 
   Stream<User> get authStateChange => _auth.authStateChanges();
 
@@ -31,12 +27,15 @@ class AuthService with ChangeNotifier{
 
   Future<String> signUpWithEmailAndPassword(String email,
       String password,String name) async {
+    print(loading);
     loading = true;
+    print(loading);
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       await DatabaseService(uid: _auth.currentUser.uid).addNewUser(name, email);
       loading = false;
+      print(loading);
       notifyListeners();
       return "Signed up Successfully";
     } on FirebaseAuthException catch (e) {
