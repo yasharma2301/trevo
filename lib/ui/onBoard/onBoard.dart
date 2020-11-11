@@ -1,5 +1,6 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/shared/delayed_animation.dart';
 import 'package:trevo/ui/login/login.dart';
@@ -13,6 +14,8 @@ class OnBoard extends StatefulWidget {
 class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin {
   double _scale;
   AnimationController _controller;
+  FlutterTts flutterTts = FlutterTts();
+
   @override
   void initState() {
     _controller = AnimationController(
@@ -25,14 +28,27 @@ class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin 
     )..addListener(() {
       setState(() {});
     });
+    Future.delayed(Duration(seconds: 1)).then((value) => {
+      speak("Hi There! My name is Trevo.\nYour personal travel assistant. Please login to continue.")
+    });
     super.initState();
+  }
+
+  Future speak(String string1) async{
+    await flutterTts.speak(string1);
+  }
+
+  Future stop() async{
+    flutterTts.stop();
   }
 
   @override
   void dispose() {
     super.dispose();
     _controller.dispose();
+    stop();
   }
+
   @override
   Widget build(BuildContext context) {
     _scale = 1 - _controller.value;
@@ -47,7 +63,7 @@ class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin 
             mainAxisSize: MainAxisSize.max,
             children: [
               DelayedAnimation(
-                delay: 200,
+                delay: 100,
                 child: Hero(
                   tag: 'TrevoIcon',
                   child: Container(
@@ -112,6 +128,7 @@ class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin 
                 delay: 1200,
                 child: GestureDetector(
                   onTap: () {
+                        stop();
                         Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Login()));
                   },
                   onTapDown: _onTapDown,
@@ -159,7 +176,7 @@ class _OnBoardState extends State<OnBoard> with  SingleTickerProviderStateMixin 
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignUp()));
                   },
                   child: Text(
-                    'I already have an account!',
+                    'I don\'t have an account!',
                     style: TextStyle(
                         color: Teal,
                         fontWeight: FontWeight.w400,

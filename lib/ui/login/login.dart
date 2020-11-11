@@ -1,8 +1,12 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trevo/main.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/shared/globalFunctions.dart';
+import 'package:trevo/ui/Home/home.dart';
 import 'package:trevo/ui/login/signup.dart';
+import 'package:trevo/utils/auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -38,6 +42,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final loginProvider = Provider.of<AuthService>(context);
+
     _scale = 1 - _controller.value;
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
@@ -135,8 +141,20 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   height: 15,
                 ),
                 GestureDetector(
-                  onTap: () {
-//                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Login()));
+                  onTap: (){
+                    String email = _emailController.text;
+                    String password = _passwordController.text;
+                    if(email==null || password==null){
+                      // Fields cannot be empty
+                    }else if(!emailRegexPass(email)){
+                      // input a valid email
+                    }else if(!passwordRegexPass(password)){
+                      // password should be longer than 6 characters
+                    }else{
+                      loginProvider.signInWithEmailAndPassword(email, password).then((value) =>{
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()))
+                      });
+                    }
                   },
                   onTapDown: _onTapDown,
                   onTapUp: _onTapUp,
@@ -198,19 +216,6 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     );
   }
 
-  void login(){
-    String email = _emailController.text;
-    String password = _passwordController.text;
-    if(email==null || password==null){
-        // Fields cannot be empty
-    }else if(!emailRegexPass(email)){
-      // input a valid email
-    }else if(!passwordRegexPass(password)){
-      // password should be longer than 6 characters
-    }else{
-      // Login
-    }
-  }
 
   void _onTapDown(TapDownDetails details) {
     _controller.forward();

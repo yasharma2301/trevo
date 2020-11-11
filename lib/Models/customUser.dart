@@ -1,16 +1,17 @@
 class CustomUser {
-  final String email,uID,name;
+  final String email,name;
 
-  CustomUser(this.email, this.uID, this.name);
+  CustomUser({this.email, this.name});
 
   Map toJson() => {
     'email': email,
-    'uID': uID,
     'name': name,
   };
 
-  CustomUser.fromJson(Map json)
-      : email = json['email'],
-        uID = json['uID'],
-        name = json['name'];
+  factory CustomUser.fromMap(Map json){
+    return CustomUser(
+        email : json['email'],
+        name : json['name'],
+    );
+  }
 }

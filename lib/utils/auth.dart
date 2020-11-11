@@ -1,11 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:trevo/utils/databaseService.dart';
 
 class AuthService with ChangeNotifier{
   final FirebaseAuth _auth;
   bool loading = true;
 
   AuthService(this._auth);
+
+  void x(){
+    _auth.currentUser.uid;
+  }
 
   Stream<User> get authStateChange => _auth.authStateChanges();
 
@@ -25,11 +30,12 @@ class AuthService with ChangeNotifier{
   }
 
   Future<String> signUpWithEmailAndPassword(String email,
-      String password) async {
+      String password,String name) async {
     loading = true;
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      await DatabaseService(uid: _auth.currentUser.uid).addNewUser(name, email);
       loading = false;
       notifyListeners();
       return "Signed up Successfully";
