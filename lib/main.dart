@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:trevo/ui/Home/home.dart';
 import 'package:trevo/ui/onBoard/onBoard.dart';
 import 'package:trevo/utils/auth.dart';
+import 'package:trevo/utils/databaseService.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();

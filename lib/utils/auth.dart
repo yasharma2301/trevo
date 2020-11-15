@@ -1,10 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trevo/utils/databaseService.dart';
 
 class AuthService with ChangeNotifier{
   final FirebaseAuth _auth;
   bool loading = false;
+  String userName,userEmail;
 
   AuthService(this._auth);
 
@@ -14,7 +16,9 @@ class AuthService with ChangeNotifier{
       String password) async {
     loading = true;
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      await _auth.signInWithEmailAndPassword(email: email, password: password).then((value) => {
+        DatabaseService(uid: value.user.uid).setUserDetailsDuringLogin()
+      });
       loading = false;
       notifyListeners();
       return "Sign in Success";
@@ -23,6 +27,10 @@ class AuthService with ChangeNotifier{
       notifyListeners();
       return e.message;
     }
+  }
+
+  String getCurrentUserUid(){
+    return  _auth.currentUser.uid;
   }
 
   Future<String> signUpWithEmailAndPassword(String email,
@@ -45,8 +53,11 @@ class AuthService with ChangeNotifier{
     }
   }
 
+
   Future<void> signOut() async {
     await _auth.signOut();
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.clear();
   }
 
 }
