@@ -9,25 +9,39 @@ import 'package:trevo/utils/auth.dart';
 import 'package:trevo/utils/databaseService.dart';
 
 class Profile extends StatefulWidget {
-  final name,email;
-
-  const Profile({Key key, this.name, this.email}) : super(key: key);
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+  String name = '';
+  String email = '';
 
+  void retrieve() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      name = sharedPreferences.getString('name') ?? 'User Name';
+      email = sharedPreferences.getString('email') ?? 'User Email';
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    retrieve();
+  }
 
   double height, width;
+
   @override
   Widget build(BuildContext context) {
     final profileProvider = Provider.of<AuthService>(context);
-    DatabaseService databaseService = new DatabaseService(uid: profileProvider.getCurrentUserUid());
+    DatabaseService databaseService =
+        new DatabaseService(uid: profileProvider.getCurrentUserUid());
 
     width = MediaQuery.of(context).size.width;
     return DelayedAnimation(
-      delay:10,
+      delay: 10,
       child: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
@@ -44,11 +58,37 @@ class _ProfileState extends State<Profile> {
                     fontSize: 24),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 5,),
-              ProfileTile(width: width,icon: Icons.person,title: 'Name',description: 'Yash Sharma',dbHelper: databaseService,),
-              ProfileTile(width: width,icon: Icons.email,title: 'Email',description: 'ys909@snu.edu.in',dbHelper: databaseService,),
-              ProfileTile(width: width,icon: Icons.notifications,title: 'Notifications',description: 'Always Send',dbHelper: databaseService,),
-              ProfileTile(width: width,icon: Icons.info,title: 'Transactions',description: 'Your travel plans',dbHelper: databaseService,),
+              SizedBox(
+                height: 5,
+              ),
+              ProfileTile(
+                width: width,
+                icon: Icons.person,
+                title: 'Name',
+                description: name,
+                dbHelper: databaseService,
+              ),
+              ProfileTile(
+                width: width,
+                icon: Icons.email,
+                title: 'Email',
+                description: email,
+                dbHelper: databaseService,
+              ),
+              ProfileTile(
+                width: width,
+                icon: Icons.notifications,
+                title: 'Notifications',
+                description: 'Always Send',
+                dbHelper: databaseService,
+              ),
+              ProfileTile(
+                width: width,
+                icon: Icons.info,
+                title: 'Transactions',
+                description: 'Your travel plans',
+                dbHelper: databaseService,
+              ),
               Logout(),
             ],
           ),
@@ -56,6 +96,7 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
+
   String greeting() {
     var hour = DateTime.now().hour;
     if (hour < 12) {
