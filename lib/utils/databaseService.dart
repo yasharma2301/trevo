@@ -17,6 +17,7 @@ class DatabaseService{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString('name', name);
     sharedPreferences.setString('email', email);
+    sharedPreferences.setString('uid', uid);
     return await _db.collection('users').doc(uid).set(data);
   }
 
@@ -29,7 +30,8 @@ class DatabaseService{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     getUser().then((value) => {
       sharedPreferences.setString('name', value.name),
-      sharedPreferences.setString('email', value.email)
+      sharedPreferences.setString('email', value.email),
+      sharedPreferences.setString('uid', uid)
   });
   }
 
