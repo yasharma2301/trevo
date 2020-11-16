@@ -25,9 +25,9 @@ class _ProfileTileState extends State<ProfileTile> {
   }
   void _handleSwitch(bool value) async {
     if( value ) {
-      await widget.dbHelper.updateNotificationChannel(1);;
+      await widget.dbHelper.updateNotificationChannel(1);
     } else {
-      await widget.dbHelper.updateNotificationChannel(0);;
+      await widget.dbHelper.updateNotificationChannel(0);
     }
     setState(() {
       isSwitched = value;
