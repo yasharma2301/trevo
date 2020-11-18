@@ -6,6 +6,8 @@ import 'package:trevo/ui/Home/home.dart';
 import 'package:trevo/ui/onBoard/onBoard.dart';
 import 'package:trevo/utils/auth.dart';
 import 'package:trevo/utils/databaseService.dart';
+import 'package:trevo/utils/locationProvider.dart';
+import 'package:trevo/utils/placesProvider.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +22,12 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<AuthService>(
           create: (_) => AuthService(FirebaseAuth.instance),
+        ),
+        ChangeNotifierProvider<LocationProviderClass>(
+          create: (_) => LocationProviderClass(),
+        ),
+        ChangeNotifierProvider<PlacesProvider>(
+          create: (_) => PlacesProvider(),
         ),
          StreamProvider(
            create: (context) => context.read<AuthService>().authStateChange,
