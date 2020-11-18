@@ -26,6 +26,8 @@ dependencies:
   geolocator: ^6.1.4
   geocoder: ^0.2.1
   google_fonts: ^1.1.1
+  http: ^0.12.2
+  flutter_swiper: ^1.1.6
 
 dev_dependencies:
   flutter_test:

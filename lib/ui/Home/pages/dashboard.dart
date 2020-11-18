@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trevo/ui/Home/Data%20Display/display_hotels.dart';
 
 class DashBoard extends StatefulWidget {
   @override
@@ -96,87 +97,120 @@ class _DashBoardState extends State<DashBoard> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                width: 85,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.lightGreen,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: IconButton(
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                    return DisplayHotels(cityName);
+                  }));
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  width: 85,
+                  height: 110,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.lightGreen,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: IconButton(
                             icon: Icon(
                               Icons.hotel,
                               color: Colors.white,
                             ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Hotel",style: GoogleFonts.sourceSansPro(fontSize: 16,fontWeight: FontWeight.w500),)
-                    ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hotel",
+                          style: GoogleFonts.sourceSansPro(
+                              fontSize: 16, fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                width: 85,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.indigo,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: IconButton(
+              InkWell(
+                onTap: () {
+                  print("pressed");
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  width: 85,
+                  height: 110,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.indigo,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: IconButton(
                             icon: Icon(
                               Icons.restaurant,
                               color: Colors.white,
                             ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Restaurant",style: GoogleFonts.sourceSansPro(fontSize: 16,fontWeight: FontWeight.w500),)
-                    ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Restaurant",
+                          style: GoogleFonts.sourceSansPro(
+                              fontSize: 16, fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                width: 85,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.deepOrangeAccent,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: IconButton(
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  width: 85,
+                  height: 110,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.deepOrangeAccent,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: IconButton(
                             icon: Icon(
                               Icons.tour,
                               color: Colors.white,
                             ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Places",style: GoogleFonts.sourceSansPro(fontSize: 16,fontWeight: FontWeight.w500),)
-                    ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Places",
+                          style: GoogleFonts.sourceSansPro(
+                              fontSize: 16, fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )
