@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:trevo/shared/colors.dart';
+import 'package:trevo/ui/Home/pages/createNewStory.dart';
 
 class Feed extends StatefulWidget {
   @override
@@ -61,7 +61,6 @@ class _FeedState extends State<Feed> {
               controller: pageController,
               itemCount: snapshot.data.documents.length + 1,
               itemBuilder: (context, int currentIndex) {
-                print(currentIndex);
                 if (currentIndex == 0) {
                   return _buildTagPage();
                 } else {
@@ -109,12 +108,15 @@ class _FeedState extends State<Feed> {
           _buildButton('all stories'),
           _buildButton('favourites'),
           _buildButton('adventure'),
-          _buildButton('Blogs'),
+          _buildButton('Personal'),
           SizedBox(
             height: 10,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => CreateNewStory()));
+            },
             child: Container(
               decoration: BoxDecoration(
                 color: BottleGreen,
@@ -159,30 +161,56 @@ class _FeedState extends State<Feed> {
       duration: Duration(milliseconds: 500),
       curve: Curves.easeOutCubic,
       margin: EdgeInsets.only(top: top, bottom: 50, right: 10),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-            color: BottleGreen.withOpacity(0.1),
-            blurRadius: blur,
-            offset: Offset(offset, offset)),
-      ],
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        child: Stack(
-          children: [
-            Image.network(data['img'],fit: BoxFit.fill,
-              loadingBuilder:(BuildContext context, Widget child,ImageChunkEvent loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Center(
-                  child: Image.asset(
-                    'assets/landscape.jpg',
-                    fit: BoxFit.contain,
-                  ),
-                );
-              },
-            ),
+      decoration: BoxDecoration(
+          color: Teal,
+          boxShadow: [
+            BoxShadow(
+                color: BottleGreen.withOpacity(0.1),
+                blurRadius: blur,
+                offset: Offset(offset, offset)),
           ],
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          image: DecorationImage(
+              image: NetworkImage(
+                data['img'],
+              ),
+              fit: BoxFit.cover)),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.edit),
+        ),
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    data['title'],
+                    style: TextStyle(
+                        color: White,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat',
+                        fontSize: 28),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    data['description'],
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: White,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat',
+                        fontSize: 20),
+                  ),
+
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

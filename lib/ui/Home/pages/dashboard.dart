@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trevo/shared/colors.dart';
+import 'package:trevo/ui/Home/pages/dashboardPages/hotels.dart';
+import 'package:trevo/ui/Home/pages/dashboardPages/places.dart';
+import 'package:trevo/ui/Home/pages/dashboardPages/restaurants.dart';
 
 class DashBoard extends StatefulWidget {
   @override
@@ -15,13 +19,17 @@ class _DashBoardState extends State<DashBoard> {
 
   void getCurrentLocation() async {
     final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+        desiredAccuracy: LocationAccuracy.medium);
     currentUserLatLong = new Coordinates(position.latitude, position.longitude);
     final address =
         await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
     final first = address.first;
+    double latitude = first.coordinates.latitude;
+    double longitude = first.coordinates.longitude;
     cityName = first.locality;
     print(cityName);
+    print(latitude);
+    print(longitude);
     setState(() {});
   }
 
@@ -33,157 +41,123 @@ class _DashBoardState extends State<DashBoard> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                margin: EdgeInsets.only(left: 115),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.location_on,
-                      color: Colors.blue,
-                      size: 20,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      cityName,
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600)),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 20),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        offset: Offset(0.0, 1.0), //(x,y)
-                        blurRadius: 6.0,
-                      )
-                    ]),
-                child: IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {},
-                ),
-              )
-            ],
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              child: Text(
-                "Category",
-                style: GoogleFonts.sourceSansPro(
-                    fontSize: 22, fontWeight: FontWeight.w600),
-              ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: LightGrey,
+        appBar: AppBar(
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              color: White,
+              onPressed: () {
+                showSearch(context: context, delegate: DataSearch());
+              },
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                width: 85,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.lightGreen,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: IconButton(
-                            icon: Icon(
-                              Icons.hotel,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Hotel",style: GoogleFonts.sourceSansPro(fontSize: 16,fontWeight: FontWeight.w500),)
-                    ],
-                  ),
+            IconButton(
+              icon: Icon(Icons.camera_alt),
+              color: White,
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 10,
+            ),
+          ],
+          elevation: 10,
+          backgroundColor: BottleGreen,
+          title: Text('Trevo'),
+          bottom: TabBar(
+            indicatorColor: White,
+            indicatorWeight: 3,
+            tabs: [
+              Tab(
+                child: Text(
+                  'Places',
+                  style: TextStyle(fontSize: 16),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                width: 85,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.indigo,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: IconButton(
-                            icon: Icon(
-                              Icons.restaurant,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Restaurant",style: GoogleFonts.sourceSansPro(fontSize: 16,fontWeight: FontWeight.w500),)
-                    ],
-                  ),
+              Tab(
+                child: Text(
+                  'Hotels',
+                  style: TextStyle(fontSize: 16),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                width: 85,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.elliptical(70, 60)),
+              Tab(
+                child: Text(
+                  'Restaurants',
+                  style: TextStyle(fontSize: 16),
                 ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.deepOrangeAccent,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: IconButton(
-                            icon: Icon(
-                              Icons.tour,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Places",style: GoogleFonts.sourceSansPro(fontSize: 16,fontWeight: FontWeight.w500),)
-                    ],
-                  ),
-                ),
-              )
+              ),
             ],
-          )
-        ],
+          ),
+        ),
+        body: TabBarView(
+          children: [Places(), Hotels(), Restaurants()],
+        ),
       ),
+    );
+  }
+}
+
+class DataSearch extends SearchDelegate<String> {
+  final cities = ["Jaipur", "Jabalpur", "London", "Delhi", "Agra"];
+  final recentCities = ["Jaipur"];
+
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = "";
+        },
+      )
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: AnimatedIcon(
+        icon: AnimatedIcons.menu_arrow,
+        progress: transitionAnimation,
+      ),
+      onPressed: () {
+        close(context, null);
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+     print(query);
+    return Container(height: 100,width: 100, child: Text(query),);
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final suggestions = query.isEmpty
+        ? recentCities
+        : cities.where((element) => element.startsWith(query)).toList();
+    return ListView.builder(
+      itemBuilder: (context, index) => ListTile(
+        onTap: (){
+          showResults(context);
+        },
+        leading: Icon(Icons.location_city),
+        title: RichText(
+          text: TextSpan(
+              text: suggestions[index].substring(0, query.length),
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontSize: 17),
+              children: [
+                TextSpan(
+                    text: suggestions[index].substring(query.length),
+                    style: TextStyle(color: Colors.grey))
+              ]),
+        ),
+      ),
+      itemCount: suggestions.length,
     );
   }
 }
