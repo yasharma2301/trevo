@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
           backgroundColor: LightGrey,
           floatingActionButton: FloatingActionButton(
+            heroTag: 'animation2',
               elevation: 10,
               onPressed: () {
                 Navigator.of(context)

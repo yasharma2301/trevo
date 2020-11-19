@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "trevo-brua",
+  "private_key_id": "9223455e375a34961b356c5bc893eeddb06d1b18",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQClK+/xeO3UMFrN\n0Em2fPTYU19cmDrHy8/ulmlY251XPXilGV7iBKlI5pWACQOLR6tQhNk08zHpqBaj\n0giDayLzjGzCvv9KDqh5hhVEY6g/+u4Ib50cbKuassETcu6NdG/ApYA0WlxTZYnn\nYMMGvIa7z7QjVj8vyWwwUjwkWvxkHHhhYGLN15CzyUrtb1iVHtOCTmgQ3hhd3U1k\n3IfxkyIaaAe2rKuQxIaDy14uJ5IOKGBI6x0edxaqb4I9Rkx8udk0eBsAzwb2Cy5n\nfZG5qk/6nlyf5og/HtaQpGLKLwG1pBYgNQlg+8znO9RPZL0PYQz4c7Ekq7jw8Bvm\n1MtwpzgFAgMBAAECggEAOcqSRTB1MmmK0/ldWUMGXkxpkNnYs0B+K/InwQXyWuxw\nsn+agcV0v8OiKm689TYp3F3nK84tuB3ucfpSrTzGuWV4RnmSlERlsUN3XHrsCxrO\nv1fiJmhlcJa71ITBr+++DC88GNVG+Y0M/86M3mYHVF5bnoOWTy+QMaYMUgIdzh7S\nHoZFSCxgdvZcKrku3UsREz4CyRfbVSkL5UnpaGj1VS5fjur/gBJLikGohhRwo2fb\neU1xVlfwWwccF/522AmMfFX3q/x2zIx0Svr03qEp0YRSYOIXbAY2qFHK3DVbCR97\nO5vGmHC+EakF0R4iXh/qeZJtzbiIpJ3OCAfMp3i4TwKBgQDPrN1a+euBQ6MOBz0e\n1KS1Ht5FUmTfphxwY1hFpG71TODKgmsZf7Ws9rmJuufxvbOI36D7xahVmQ3h3VCk\nHgrhp1VAybDwmSS4DfO3ViqXSQVEjm8y7pkyYkKlsYvwCv+KsZPO/E3ytck9CoHB\nO+b+4j23z8o6J73FuJNsKoUREwKBgQDLmyXoJQAIDgYbIGyya4kDX465qP34TlCR\nYEe/OvqL9BkipwjKX1I1JC4YLMq32wxoVlEmpY15nKvn6edHsZb8cUg1J1ApOu4w\njsQ3KAhX9EZDO3GaRjonG84fviptH6pXKRaM0k63fB4+78WFiIGW+IVTHiOfRaCh\npCJW29XNhwKBgDieDR7/Yag1E2AAszYTjO/gAYLuqpeahshRHUCnSqTPl709/wrN\nmW8VOJIHBbMPH8IiDZZ2VaU4e+Nm3dRQaHEKmKB4HCgL6EnRa+9Aq43hF3GQT1qY\nV+W3iin4FImVxgM+1Ggquul/i+R7V9KhjSFR9reFC8H9Eay03GQx12NHAoGAaYOW\nqm56TLJP0cEE85Ws5JWh1m9QZlzXfe9CX0TGUL8IQ6ACezXY2XdNd/PGfm9DR9Lr\nrTaAUbSylbXuyIWs9FgUjo84CJXkmD90Sg0x/bq2quLkZYndWyUatfKL9A9D7HV7\nnTDj4EyvM/h4CVKLrdxO45sr5L9llj8EGLVGYIMCgYEAop0Q+d4vvrcfxfUfeX2d\nOjvZLCEJWgaAmEdQYx6aYkLxI2FhtYjJ9RIam6E5AjZJr5/qBvtUWVlld3VqPNlM\n+XmBfe0denX0pPoDQl0wXLrdAFlCQwHZsGG4amjjRC7oMnhqsSvmpBgvVPkd2vJW\nkilw8CUW4oxaY76si4++gsQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-trevo@trevo-brua.iam.gserviceaccount.com",
+  "client_id": "111125973249540825162",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-trevo%40trevo-brua.iam.gserviceaccount.com"
+}
