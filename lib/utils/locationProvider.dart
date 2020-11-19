@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocationProviderClass with ChangeNotifier{
-  String cityName="Delhi";
+  String cityName;
   double latitude;
   double longitude;
   bool locationServiceActive = true;
@@ -32,12 +32,8 @@ class LocationProviderClass with ChangeNotifier{
     return conn;
   }
 
-  LocationProviderClass(){
-    checkGPS().then((value) {
-      if(value){
-          updateCurrentLocation();
-      }
-    });
+  LocationProviderClass(String city){
+    cityName = city;
   }
 
   void setCityName(String city){

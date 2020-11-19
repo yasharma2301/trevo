@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
+import 'package:trevo/ui/Home/pages/dashboardPages/cameraTab.dart';
 import 'package:trevo/ui/Home/pages/dashboardPages/hotels.dart';
 import 'package:trevo/ui/Home/pages/dashboardPages/places.dart';
 import 'package:trevo/ui/Home/pages/dashboardPages/restaurants.dart';
@@ -12,103 +13,119 @@ import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 
 class DashBoard extends StatefulWidget {
-  final placesProvider,locationProvider;
+  final placesProvider, locationProvider;
 
-  const DashBoard({Key key, this.placesProvider, this.locationProvider}) : super(key: key);
+  const DashBoard({Key key, this.placesProvider, this.locationProvider})
+      : super(key: key);
+
   @override
   _DashBoardState createState() => _DashBoardState();
 }
 
-class _DashBoardState extends State<DashBoard> {
+class _DashBoardState extends State<DashBoard>
+    with SingleTickerProviderStateMixin {
   Coordinates currentUserLatLong;
+  TabController _tabController;
+  bool showExtra = true;
 
   @override
   void initState() {
-    widget.placesProvider.fetchAttractions(widget.locationProvider.cityName);
+     widget.placesProvider.fetchAttractions(widget.locationProvider.cityName);
     super.initState();
+    _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
+    _tabController.addListener(() {
+      if (_tabController.index == 1) {
+        showExtra = true;
+      } else {
+        showExtra = false;
+      }
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final locationProvider = Provider.of<LocationProviderClass>(context);
     final placesProvider = Provider.of<PlacesProvider>(context);
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        backgroundColor: LightGrey,
-        appBar: AppBar(
-          actions: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  locationProvider.cityName,
-                  style: TextStyle(fontSize: 18),
-                ),
-                IconButton(
-                  icon: Icon(Icons.search),
-                  color: White,
-                  onPressed: () async {
-                    var result = await showSearch<String>(
-                        context: context, delegate: DataSearch());
-                    setState(() {
-                      if (result != null) {
-                        locationProvider.setCityName(result);
-                        placesProvider.fetchAttractions(result);
-                      }
-                    });
-                  },
-                ),
-              ],
-            ),
-            IconButton(
-              icon: Icon(Icons.camera_alt),
-              color: White,
-              onPressed: () {},
-            ),
-            SizedBox(
-              width: 10,
-            ),
-          ],
-          elevation: 10,
-          backgroundColor: BottleGreen,
-          title: Text('Trevo'),
-          bottom: TabBar(
-            indicatorColor: White,
-            indicatorWeight: 3,
-            tabs: [
-              Tab(
-                child: Text(
-                  'Places',
-                  style: TextStyle(fontSize: 16),
-                ),
+    return Scaffold(
+      backgroundColor: LightGrey,
+      appBar: AppBar(
+        actions: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                locationProvider.cityName,
+                style: TextStyle(fontSize: 18),
               ),
-              Tab(
-                child: Text(
-                  'Hotels',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              Tab(
-                child: Text(
-                  'Restaurants',
-                  style: TextStyle(fontSize: 16),
-                ),
+              IconButton(
+                icon: Icon(Icons.search),
+                color: White,
+                onPressed: () async {
+                  var result = await showSearch<String>(
+                      context: context, delegate: DataSearch());
+                  setState(() {
+                    if (result != null) {
+                      locationProvider.setCityName(result);
+                      placesProvider.fetchAttractions(result);
+                    }
+                  });
+                },
               ),
             ],
           ),
-        ),
-        body: TabBarView(
-          children: [
-            Places(
-              placesProvider: placesProvider,
-              cityName: locationProvider.cityName,
+          SizedBox(
+            width: 10,
+          ),
+        ],
+        elevation: 10,
+        backgroundColor: BottleGreen,
+        title: Text('Trevo'),
+        bottom: TabBar(
+          isScrollable: true,
+          controller: _tabController,
+          indicatorColor: Colors.white,
+          labelPadding: EdgeInsets.symmetric(horizontal:20.0),
+          indicatorWeight: 3,
+          tabs: [
+            Tab(
+              icon: Icon(
+                Icons.camera_alt,
+              ),
             ),
-            Hotels(),
-            Restaurants()
+            Tab(
+              child: Text(
+                'Places',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Hotels',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Restaurants',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           ],
         ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          CameraTab(),
+          Places(
+            placesProvider: placesProvider,
+            cityName: locationProvider.cityName,
+          ),
+          Hotels(),
+          Restaurants()
+        ],
       ),
     );
   }
