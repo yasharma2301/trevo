@@ -1,45 +1,47 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:trevo/shared/colors.dart';
 
 class HotelTile extends StatelessWidget {
-  final imageUrl, description, attractionName, distance, readMore;
+  final imgUrl, hotelName, hotelPrice;
 
-  const HotelTile(
-      {Key key,
-      this.imageUrl,
-      this.description,
-      this.attractionName,
-      this.distance,
-      this.readMore})
-      : super(key: key);
+  HotelTile({
+    this.hotelName,
+    this.imgUrl,
+    this.hotelPrice,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      margin: EdgeInsets.only(left: 7.5, right: 7.5, bottom: 15),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(5)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Material(
-            color: Colors.transparent,
-            elevation: 4,
-            child: Hero(
-              tag: imageUrl,
-              child: Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  color: BottleGreen,
+          Container(
+            height: 200,
+            child: Swiper(
+              itemBuilder: (_, imgIndex) {
+                return ClipRRect(
                   borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(5),
-                      topLeft: Radius.circular(5)),
-                  image: DecorationImage(
-                      image: NetworkImage(imageUrl), fit: BoxFit.cover),
-                ),
-              ),
+                      topLeft: Radius.circular(5),
+                      topRight: Radius.circular(5)),
+                  child: CachedNetworkImage(
+                    imageUrl: imgUrl[imgIndex],
+                    fit: BoxFit.fill,
+                    height: 200,
+                    errorWidget: (_, __, ___)=> Icon(Icons.error,size: 40,),
+                  ),
+                );
+              },
+              scale: 0.9,
+              viewportFraction: 0.8,
+              itemCount: imgUrl.length,
+              pagination: SwiperPagination(),
             ),
           ),
           Padding(
@@ -47,232 +49,78 @@ class HotelTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  attractionName,
-                  style: TextStyle(
-                      fontSize: 19,
-                      color: BottleGreen,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 10),
+                  child: Text(
+                    hotelName,
+                    style: TextStyle(
+                        fontSize: 19,
+                        color: BottleGreen,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
-                  height: 2,
+                  height: 10,
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 30),
+                          height: 40,
+                          width: 80,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Text(hotelPrice,
+                              style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.white,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.bold)),
+                        )
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                            color: Colors.redAccent[100].withOpacity(0.2),
+                            color: Colors.blueAccent[100].withOpacity(0.1),
                             borderRadius: BorderRadius.circular(5)),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.location_on,
-                              color: Colors.redAccent[100],
-                              size: 28,
+                            SizedBox(
+                              width: 10,
                             ),
                             Text(
-                              distance,
+                              'ReadMore',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 15,
                                   color: BottleGreen,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w400),
-                            )
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              color: Colors.blueAccent[100],
+                              size: 32,
+                            ),
                           ],
                         ),
                       ),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          splashColor: Colors.blueAccent[100].withOpacity(0.6),
-                          onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => ReadAboutPlace(
-                                  attractionName: attractionName,
-                                  imageUrl: imageUrl,
-                                  description: description,
-                                  readMore: readMore,
-                                  distance: distance,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                                color: Colors.blueAccent[100].withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Read More',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: BottleGreen,
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                Icon(
-                                  Icons.chevron_right,
-                                  color: Colors.blueAccent[100],
-                                  size: 28,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 )
               ],
             ),
           )
-        ],
-      ),
-    );
-  }
-}
-
-class ReadAboutPlace extends StatefulWidget {
-  final imageUrl, description, attractionName, distance, readMore;
-
-  const ReadAboutPlace(
-      {Key key,
-      this.imageUrl,
-      this.description,
-      this.attractionName,
-      this.distance,
-      this.readMore})
-      : super(key: key);
-
-  @override
-  _ReadAboutPlaceState createState() => _ReadAboutPlaceState();
-}
-
-class _ReadAboutPlaceState extends State<ReadAboutPlace> {
-  double height, width;
-
-  @override
-  Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: White,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Hero(
-            tag: widget.imageUrl,
-            child: Stack(
-              children: [
-                Container(
-                  height: 400,
-                  width: width,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    image: DecorationImage(
-                        image: NetworkImage(widget.imageUrl),
-                        fit: BoxFit.cover),
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [Colors.transparent, White]),
-                      shape: BoxShape.rectangle,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 20,
-                  right: 20,
-                  child: Material(
-                    color: Colors.transparent,
-                    elevation: 30,
-                    child: Container(
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: White, shape: BoxShape.circle),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.link,
-                          color: BottleGreen,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 20,
-                  left: 20,
-                  child: Row(
-                    children: [
-                      Icon(Icons.location_on),
-                      Material(
-                        color: Colors.transparent,
-                        child: Text(
-                          widget.distance,
-                          style: TextStyle(
-                              color: BottleGreen,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'Montserrat',
-                              fontSize: 20),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Text(
-                    widget.attractionName,
-                    style: TextStyle(
-                        color: BottleGreen,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat',
-                        fontSize: 28),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    widget.description,
-                    style: TextStyle(
-                        color: BottleGreen,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: 'Montserrat',
-                        fontSize: 17),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
-          ),
         ],
       ),
     );

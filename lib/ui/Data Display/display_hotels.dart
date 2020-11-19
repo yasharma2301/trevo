@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:http/http.dart' as http;
 import 'package:trevo/shared/colors.dart';
@@ -23,8 +24,6 @@ class _DisplayHotelsState extends State<DisplayHotels> {
   List<List<dynamic>> imgUrls = new List<List<dynamic>>();
   String query = "hotel";
   bool isLoading;
-
-
 
   void getImageUrls() async {
     setState(() {
@@ -59,18 +58,18 @@ class _DisplayHotelsState extends State<DisplayHotels> {
       color: LightGrey,
       child: isLoading == true
           ? Center(
-        child: CircularProgressIndicator(),
-      )
+              child: SpinKitCircle(color: BottleGreen),
+            )
           : ListView.builder(
-        itemBuilder: (_, index) {
-          return HotelTile(
-            hotelName: hotelNameData[index],
-            imgUrl: imgUrls[index],
-            hotelPrice: priceData[index],
-          );
-        },
-        itemCount: hotelNameData.length,
-      ),
+              itemBuilder: (_, index) {
+                return HotelTile(
+                  hotelName: hotelNameData[index],
+                  imgUrl: imgUrls[index],
+                  hotelPrice: priceData[index],
+                );
+              },
+              itemCount: hotelNameData.length,
+            ),
     );
   }
 }

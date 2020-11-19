@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Restaurants extends StatefulWidget {
+class DisplayRestaurants extends StatefulWidget {
   @override
-  _RestaurantsState createState() => _RestaurantsState();
+  _DisplayRestaurantsState createState() => _DisplayRestaurantsState();
 }
 
-class _RestaurantsState extends State<Restaurants> {
+class _DisplayRestaurantsState extends State<DisplayRestaurants> {
   @override
   Widget build(BuildContext context) {
     return Container();

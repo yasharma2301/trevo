@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:trevo/Models/places.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/ui/Tiles/placesTile.dart';
-import 'file:///C:/Users/Shivansh/Desktop/Flutter%20Projects/trevo/lib/ui/Tiles/hotelTile.dart';
 import 'package:trevo/utils/placesProvider.dart';
 
-class Places extends StatefulWidget {
+class DisplayPlaces extends StatefulWidget {
   final placesProvider, cityName;
 
-  const Places({Key key, this.placesProvider, this.cityName}) : super(key: key);
+  const DisplayPlaces({Key key, this.placesProvider, this.cityName}) : super(key: key);
 
   @override
-  _PlacesState createState() => _PlacesState();
+  _DisplayPlacesState createState() => _DisplayPlacesState();
 }
 
-class _PlacesState extends State<Places> {
+class _DisplayPlacesState extends State<DisplayPlaces> {
   double width;
   List<Places> places = List();
 

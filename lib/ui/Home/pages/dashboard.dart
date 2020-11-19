@@ -1,13 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
+import 'package:trevo/ui/Data%20Display/displayPlaces.dart';
+import 'package:trevo/ui/Data%20Display/displayRestaurants.dart';
 import 'package:trevo/ui/Data%20Display/display_hotels.dart';
-import 'file:///C:/Users/Shivansh/Desktop/Flutter%20Projects/trevo/lib/ui/Data%20Display/displayPlaces.dart';
-import 'file:///C:/Users/Shivansh/Desktop/Flutter%20Projects/trevo/lib/ui/Data%20Display/displayRestaurants.dart';
+import 'package:trevo/ui/Home/pages/cameraTab.dart';
+
 import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 
@@ -21,120 +21,134 @@ class DashBoard extends StatefulWidget {
   _DashBoardState createState() => _DashBoardState();
 }
 
-class _DashBoardState extends State<DashBoard> {
+class _DashBoardState extends State<DashBoard>
+    with SingleTickerProviderStateMixin {
   Coordinates currentUserLatLong;
+  TabController _tabController;
+  bool showExtra = true;
 
   @override
   void initState() {
     widget.placesProvider.fetchAttractions(widget.locationProvider.cityName);
     super.initState();
+    _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
+    _tabController.addListener(() {
+      if (_tabController.index == 1) {
+        showExtra = true;
+      } else {
+        showExtra = false;
+      }
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final locationProvider = Provider.of<LocationProviderClass>(context);
     final placesProvider = Provider.of<PlacesProvider>(context);
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        backgroundColor: LightGrey,
-        appBar: AppBar(
-          actions: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.search),
-                  color: White,
-                  onPressed: () async {
-                    var result = await showSearch<String>(
-                        context: context, delegate: DataSearch());
-                    setState(() {
-                      if (result != null) {
-                        locationProvider.setCityName(result);
-                        placesProvider.fetchAttractions(result);
-                      }
-                    });
-                  },
-                ),
-              ],
-            ),
-            IconButton(
-              icon: Icon(Icons.camera_alt),
-              color: White,
-              onPressed: () {},
-            ),
-            SizedBox(
-              width: 10,
-            ),
-          ],
-          elevation: 10,
-          backgroundColor: BottleGreen,
-          title: Row(
+    return Scaffold(
+      backgroundColor: LightGrey,
+      appBar: AppBar(
+        actions: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('Trevo'),
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(left: 50),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.location_on,
-                      color: Colors.blue,
-                      size: 22,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      locationProvider.cityName,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Montserrat',
-                        /*fontWeight: FontWeight.bold*/
-                      ),
-                    ),
-                  ],
-                ),
+              IconButton(
+                icon: Icon(Icons.search),
+                color: White,
+                onPressed: () async {
+                  var result = await showSearch<String>(
+                      context: context, delegate: DataSearch());
+                  setState(() {
+                    if (result != null) {
+                      locationProvider.setCityName(result);
+                      placesProvider.fetchAttractions(result);
+                    }
+                  });
+                },
               ),
             ],
           ),
-          bottom: TabBar(
-            indicatorColor: White,
-            indicatorWeight: 3,
-            tabs: [
-              Tab(
-                child: Text(
-                  'Places',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              Tab(
-                child: Text(
-                  'Hotels',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              Tab(
-                child: Text(
-                  'Restaurants',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-            ],
+          SizedBox(
+            width: 10,
           ),
-        ),
-        body: TabBarView(
+        ],
+        elevation: 10,
+        backgroundColor: BottleGreen,
+        title: Row(
           children: [
-            Places(
-              placesProvider: placesProvider,
-              cityName: locationProvider.cityName,
+            Text('Trevo'),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(left: 50),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.blue,
+                    size: 22,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    locationProvider.cityName,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Montserrat',
+                      /*fontWeight: FontWeight.bold*/
+                    ),
+                  ),
+                ],
+              ),
             ),
-            DisplayHotels(locationProvider.cityName),
-            DisplayRestaurants()
           ],
         ),
+        bottom: TabBar(
+          isScrollable: true,
+          controller: _tabController,
+          indicatorColor: Colors.white,
+          labelPadding: EdgeInsets.symmetric(horizontal: 20.0),
+          indicatorWeight: 3,
+          tabs: [
+            Tab(
+              icon: Icon(
+                Icons.camera_alt,
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Places',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Hotels',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Restaurants',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          CameraTab(),
+          DisplayPlaces(
+            placesProvider: placesProvider,
+            cityName: locationProvider.cityName,
+          ),
+          DisplayHotels(locationProvider.cityName),
+          DisplayRestaurants()
+        ],
       ),
     );
   }
