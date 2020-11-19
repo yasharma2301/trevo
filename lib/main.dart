@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoder/geocoder.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
@@ -10,6 +12,7 @@ import 'package:trevo/utils/auth.dart';
 import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 import 'package:camera/camera.dart';
+
 
 List<CameraDescription> cameras;
 String cityName;
@@ -26,11 +29,12 @@ Future<void> main() async {
         new Coordinates(position.latitude, position.longitude);
     final address =
         await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
+
     final first = address.first;
     cityName = first.locality;
     latitude = first.coordinates.latitude;
     longitude = first.coordinates.longitude;
-  } else {
+else{
     // Basically India Gate's coordinates
     cityName = "Delhi";
     latitude = 28.6129;

@@ -7,7 +7,6 @@ import 'package:trevo/ui/Data%20Display/displayPlaces.dart';
 import 'package:trevo/ui/Data%20Display/displayRestaurants.dart';
 import 'package:trevo/ui/Data%20Display/display_hotels.dart';
 import 'package:trevo/ui/Home/pages/cameraTab.dart';
-
 import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 
@@ -29,7 +28,7 @@ class _DashBoardState extends State<DashBoard>
 
   @override
   void initState() {
-    widget.placesProvider.fetchAttractions(widget.locationProvider.cityName);
+     widget.placesProvider.fetchAttractions(widget.locationProvider.cityName);
     super.initState();
     _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
     _tabController.addListener(() {
@@ -134,6 +133,7 @@ class _DashBoardState extends State<DashBoard>
                 'Restaurants',
                 style: TextStyle(fontSize: 16),
               ),
+              
             ),
           ],
         ),
@@ -142,6 +142,7 @@ class _DashBoardState extends State<DashBoard>
         controller: _tabController,
         children: [
           CameraTab(),
+
           DisplayPlaces(
             placesProvider: placesProvider,
             cityName: locationProvider.cityName,

@@ -35,7 +35,9 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
+
     version: "2.3.3"
+
   camera:
     dependency: "direct main"
     description:
@@ -43,6 +45,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.8+11"
+
   characters:
     dependency: transitive
     description:
