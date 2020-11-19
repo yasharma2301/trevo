@@ -1,11 +1,14 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/ui/Home/pages/dashboard.dart';
 import 'package:trevo/ui/Home/pages/feed.dart';
 import 'package:trevo/ui/Home/pages/profile.dart';
 import 'package:trevo/ui/TrevoBot/chat.dart';
+import 'package:trevo/utils/locationProvider.dart';
+import 'package:trevo/utils/placesProvider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -29,6 +32,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final locationProvider = Provider.of<LocationProviderClass>(context);
+    final placesProvider = Provider.of<PlacesProvider>(context);
     return SafeArea(
       child: Scaffold(
           backgroundColor: LightGrey,
@@ -97,7 +102,7 @@ class _HomeState extends State<Home> {
             elevation: 10,
           ),
           body: (currentIndex == 0)
-              ? DashBoard()
+              ? DashBoard(placesProvider: placesProvider,locationProvider: locationProvider,)
               : (currentIndex == 1) ? Feed() : Profile()),
     );
   }

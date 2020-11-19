@@ -3,45 +3,37 @@ import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
-import 'package:trevo/ui/Home/Data%20Display/display_hotels.dart';
-import 'package:trevo/ui/Home/pages/dashboardPages/hotels.dart';
-import 'package:trevo/ui/Home/pages/dashboardPages/places.dart';
-import 'package:trevo/ui/Home/pages/dashboardPages/restaurants.dart';
+import 'package:trevo/ui/Data%20Display/display_hotels.dart';
+import 'file:///C:/Users/Shivansh/Desktop/Flutter%20Projects/trevo/lib/ui/Data%20Display/displayPlaces.dart';
+import 'file:///C:/Users/Shivansh/Desktop/Flutter%20Projects/trevo/lib/ui/Data%20Display/displayRestaurants.dart';
+import 'package:trevo/utils/locationProvider.dart';
+import 'package:trevo/utils/placesProvider.dart';
 
 class DashBoard extends StatefulWidget {
+  final placesProvider, locationProvider;
+
+  const DashBoard({Key key, this.placesProvider, this.locationProvider})
+      : super(key: key);
+
   @override
   _DashBoardState createState() => _DashBoardState();
 }
 
 class _DashBoardState extends State<DashBoard> {
   Coordinates currentUserLatLong;
-  var cityName = "";
-
-  void getCurrentLocation() async {
-    final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.medium);
-    currentUserLatLong = new Coordinates(position.latitude, position.longitude);
-    final address =
-        await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
-    final first = address.first;
-    double latitude = first.coordinates.latitude;
-    double longitude = first.coordinates.longitude;
-    cityName = first.locality;
-    print(cityName);
-    print(latitude);
-    print(longitude);
-    setState(() {});
-  }
 
   @override
   void initState() {
-    getCurrentLocation();
+    widget.placesProvider.fetchAttractions(widget.locationProvider.cityName);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final locationProvider = Provider.of<LocationProviderClass>(context);
+    final placesProvider = Provider.of<PlacesProvider>(context);
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -60,7 +52,8 @@ class _DashBoardState extends State<DashBoard> {
                         context: context, delegate: DataSearch());
                     setState(() {
                       if (result != null) {
-                        cityName = result;
+                        locationProvider.setCityName(result);
+                        placesProvider.fetchAttractions(result);
                       }
                     });
                   },
@@ -95,7 +88,7 @@ class _DashBoardState extends State<DashBoard> {
                       width: 5,
                     ),
                     Text(
-                      cityName,
+                      locationProvider.cityName,
                       style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'Montserrat',
@@ -133,7 +126,14 @@ class _DashBoardState extends State<DashBoard> {
           ),
         ),
         body: TabBarView(
-          children: [Places(), DisplayHotels(cityName), Restaurants()],
+          children: [
+            Places(
+              placesProvider: placesProvider,
+              cityName: locationProvider.cityName,
+            ),
+            DisplayHotels(locationProvider.cityName),
+            DisplayRestaurants()
+          ],
         ),
       ),
     );
@@ -142,8 +142,6 @@ class _DashBoardState extends State<DashBoard> {
 
 class DataSearch extends SearchDelegate<String> {
   final cities = [
-    "Abu Dhabi",
-    "Agra",
     "Agra",
     "Ahmedabad",
     "Amritsar",
@@ -162,10 +160,7 @@ class DataSearch extends SearchDelegate<String> {
     "Boston",
     "Brussels",
     "Budapest",
-    "Buenos Aires",
     "Cairo",
-    "Cancún",
-    "Cape Town",
     "Chandigarh",
     "Chennai",
     "Chennai",
@@ -173,22 +168,16 @@ class DataSearch extends SearchDelegate<String> {
     "Coimbatore",
     "Dabolim",
     "Dallas",
-    "Dammam",
     "Dehradun",
     "Delhi",
-    "Denpasar",
     "Dubai",
     "Dublin",
     "Durban",
     "Edinburgh",
     "Florence",
     "Gaya",
-    "Guangzhou",
     "Guwahati",
-    "Hamburg",
     "Hanoi",
-    "Ho Chi Minh City",
-    "Hong Kong",
     "Houston",
     "Hyderabad",
     "Imphal",
@@ -203,19 +192,15 @@ class DataSearch extends SearchDelegate<String> {
     "Kochi",
     "Kolkata",
     "Kozhikode",
-    "Kuala Lumpur",
     "Kyoto",
     "Lagos",
-    "Las Vegas",
-    "Lima",
+    "Las-vegas",
     "Lisbon",
     "London",
-    "Los Angeles",
     "Lucknow",
     "Macau",
     "Madrid",
     "Madurai",
-    "Mangalore",
     "Mangalore",
     "Manila",
     "Mecca",
@@ -225,27 +210,21 @@ class DataSearch extends SearchDelegate<String> {
     "Montreal",
     "Moscow",
     "Mumbai",
-    "Mumbai",
     "Munich",
     "Nagpur",
-    "Nashik",
-    "New York City",
-    "Nice",
+    "New-york-city",
     "Orlando",
     "Osaka",
     "Paris",
     "Pattaya",
     "Philadelphia",
     "Phuket",
-    "Port Blair",
     "Prague",
     "Pune",
-    "Rio de Janeiro",
     "Riyadh",
     "Rome",
-    "Saint Petersburg",
-    "San Francisco",
-    "San Jose",
+    "San-francisco",
+    "San-Jose",
     "Seoul",
     "Shanghai",
     "Shenzhen",
@@ -255,10 +234,10 @@ class DataSearch extends SearchDelegate<String> {
     "Stockholm",
     "Surat",
     "Sydney",
-    "São Paulo",
+    "Sao-Paulo",
     "Taipei",
     "Tehran",
-    "Tel Aviv",
+    "Tel-aviv",
     "Thiruvananthapuram",
     "Tiruchirappalli",
     "Tokyo",
@@ -269,9 +248,7 @@ class DataSearch extends SearchDelegate<String> {
     "Venice",
     "Vienna",
     "Warsaw",
-    "Washington D.C.",
-    "Xiamen",
-    "Zhuhai",
+    "Washington-dc",
   ];
 
   @override
