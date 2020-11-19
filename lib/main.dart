@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
+import 'package:geocoder/geocoder.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:trevo/ui/Home/home.dart';
 import 'package:trevo/ui/onBoard/onBoard.dart';
 import 'package:trevo/utils/auth.dart';
@@ -11,24 +13,28 @@ import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 import 'package:camera/camera.dart';
 
+
 List<CameraDescription> cameras;
 String cityName;
 double latitude;
 double longitude;
 
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  bool isLocationServiceEnabled  = await Geolocator.isLocationServiceEnabled();
-  if(isLocationServiceEnabled){
-    final position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
-    var currentUserLatLong = new Coordinates(position.latitude, position.longitude);
+  bool isLocationServiceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (isLocationServiceEnabled) {
+    final position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.medium);
+    var currentUserLatLong =
+        new Coordinates(position.latitude, position.longitude);
     final address =
-    await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
+        await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
+
     final first = address.first;
     cityName = first.locality;
     latitude = first.coordinates.latitude;
     longitude = first.coordinates.longitude;
-  }else{
+else{
     // Basically India Gate's coordinates
     cityName = "Delhi";
     latitude = 28.6129;
@@ -53,9 +59,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<PlacesProvider>(
           create: (_) => PlacesProvider(),
         ),
-         StreamProvider(
-           create: (context) => context.read<AuthService>().authStateChange,
-         )
+        StreamProvider(
+          create: (context) => context.read<AuthService>().authStateChange,
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -69,14 +75,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User>();
     return SafeArea(
       child: Container(
-        child: firebaseUser==null?OnBoard():Home(),
+        child: firebaseUser == null ? OnBoard() : Home(),
       ),
     );
   }

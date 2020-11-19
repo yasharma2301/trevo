@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:trevo/shared/colors.dart';
 
-class HotelTile extends StatelessWidget {
+class PlacesTile extends StatelessWidget {
   final imageUrl, description, attractionName, distance, readMore;
 
-  const HotelTile(
+  const PlacesTile(
       {Key key,
-      this.imageUrl,
-      this.description,
-      this.attractionName,
-      this.distance,
-      this.readMore})
+        this.imageUrl,
+        this.description,
+        this.attractionName,
+        this.distance,
+        this.readMore})
       : super(key: key);
 
   @override
@@ -64,6 +64,7 @@ class HotelTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
+                        margin: EdgeInsets.only(right: 5),
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
                             color: Colors.redAccent[100].withOpacity(0.2),
@@ -151,11 +152,11 @@ class ReadAboutPlace extends StatefulWidget {
 
   const ReadAboutPlace(
       {Key key,
-      this.imageUrl,
-      this.description,
-      this.attractionName,
-      this.distance,
-      this.readMore})
+        this.imageUrl,
+        this.description,
+        this.attractionName,
+        this.distance,
+        this.readMore})
       : super(key: key);
 
   @override

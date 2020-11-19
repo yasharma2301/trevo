@@ -1,14 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
-import 'package:trevo/ui/Home/pages/dashboardPages/cameraTab.dart';
-import 'package:trevo/ui/Home/pages/dashboardPages/hotels.dart';
-import 'package:trevo/ui/Home/pages/dashboardPages/places.dart';
-import 'package:trevo/ui/Home/pages/dashboardPages/restaurants.dart';
+import 'package:trevo/ui/Data%20Display/displayPlaces.dart';
+import 'package:trevo/ui/Data%20Display/displayRestaurants.dart';
+import 'package:trevo/ui/Data%20Display/display_hotels.dart';
+import 'package:trevo/ui/Home/pages/cameraTab.dart';
 import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 
@@ -55,10 +53,6 @@ class _DashBoardState extends State<DashBoard>
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                locationProvider.cityName,
-                style: TextStyle(fontSize: 18),
-              ),
               IconButton(
                 icon: Icon(Icons.search),
                 color: White,
@@ -81,12 +75,40 @@ class _DashBoardState extends State<DashBoard>
         ],
         elevation: 10,
         backgroundColor: BottleGreen,
-        title: Text('Trevo'),
+        title: Row(
+          children: [
+            Text('Trevo'),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(left: 50),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.blue,
+                    size: 22,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    locationProvider.cityName,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Montserrat',
+                      /*fontWeight: FontWeight.bold*/
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
         bottom: TabBar(
           isScrollable: true,
           controller: _tabController,
           indicatorColor: Colors.white,
-          labelPadding: EdgeInsets.symmetric(horizontal:20.0),
+          labelPadding: EdgeInsets.symmetric(horizontal: 20.0),
           indicatorWeight: 3,
           tabs: [
             Tab(
@@ -111,6 +133,7 @@ class _DashBoardState extends State<DashBoard>
                 'Restaurants',
                 style: TextStyle(fontSize: 16),
               ),
+              
             ),
           ],
         ),
@@ -119,12 +142,13 @@ class _DashBoardState extends State<DashBoard>
         controller: _tabController,
         children: [
           CameraTab(),
-          Places(
+
+          DisplayPlaces(
             placesProvider: placesProvider,
             cityName: locationProvider.cityName,
           ),
-          Hotels(),
-          Restaurants()
+          DisplayHotels(locationProvider.cityName),
+          DisplayRestaurants()
         ],
       ),
     );
