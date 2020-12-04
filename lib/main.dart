@@ -13,7 +13,6 @@ import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 import 'package:camera/camera.dart';
 
-
 List<CameraDescription> cameras;
 String cityName;
 double latitude;
@@ -26,15 +25,15 @@ Future<void> main() async {
     final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.medium);
     var currentUserLatLong =
-        new Coordinates(position.latitude, position.longitude);
+    new Coordinates(position.latitude, position.longitude);
     final address =
-        await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
+    await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
 
     final first = address.first;
     cityName = first.locality;
     latitude = first.coordinates.latitude;
     longitude = first.coordinates.longitude;
-else{
+  } else {
     // Basically India Gate's coordinates
     cityName = "Delhi";
     latitude = 28.6129;
@@ -57,7 +56,7 @@ class MyApp extends StatelessWidget {
           create: (_) => LocationProviderClass(cityName),
         ),
         ChangeNotifierProvider<PlacesProvider>(
-          create: (_) => PlacesProvider(),
+          create: (_) => PlacesProvider(cityName),
         ),
         StreamProvider(
           create: (context) => context.read<AuthService>().authStateChange,

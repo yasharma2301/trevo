@@ -7,9 +7,9 @@ import 'package:trevo/ui/Tiles/placesTile.dart';
 import 'package:trevo/utils/placesProvider.dart';
 
 class DisplayPlaces extends StatefulWidget {
-  final placesProvider, cityName;
+  final placesProvider, cityName,locationProvider;
 
-  const DisplayPlaces({Key key, this.placesProvider, this.cityName}) : super(key: key);
+  const DisplayPlaces({Key key, this.placesProvider, this.cityName,this.locationProvider}) : super(key: key);
 
   @override
   _DisplayPlacesState createState() => _DisplayPlacesState();
@@ -18,12 +18,6 @@ class DisplayPlaces extends StatefulWidget {
 class _DisplayPlacesState extends State<DisplayPlaces> {
   double width;
   List<Places> places = List();
-
-  @override
-  void initState() {
-    print(widget.cityName + " from init");
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

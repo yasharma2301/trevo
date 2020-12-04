@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
-
 import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
-import 'package:trevo/ui/Data%20Display/displayPlaces.dart';
-import 'package:trevo/ui/Data%20Display/displayRestaurants.dart';
-import 'package:trevo/ui/Data%20Display/display_hotels.dart';
+import 'package:trevo/ui/DataDisplay/displayPlaces.dart';
+import 'package:trevo/ui/DataDisplay/displayRestaurants.dart';
+import 'package:trevo/ui/DataDisplay/display_hotels.dart';
 import 'package:trevo/ui/Home/pages/cameraTab.dart';
 import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
@@ -28,7 +27,6 @@ class _DashBoardState extends State<DashBoard>
 
   @override
   void initState() {
-     widget.placesProvider.fetchAttractions(widget.locationProvider.cityName);
     super.initState();
     _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
     _tabController.addListener(() {
@@ -59,12 +57,10 @@ class _DashBoardState extends State<DashBoard>
                 onPressed: () async {
                   var result = await showSearch<String>(
                       context: context, delegate: DataSearch());
-                  setState(() {
-                    if (result != null) {
-                      locationProvider.setCityName(result);
-                      placesProvider.fetchAttractions(result);
-                    }
-                  });
+                  if (result != null) {
+                    locationProvider.setCityName(result);
+                    placesProvider.fetchAttractions(result);
+                  }
                 },
               ),
             ],
@@ -75,13 +71,20 @@ class _DashBoardState extends State<DashBoard>
         ],
         elevation: 10,
         backgroundColor: BottleGreen,
-        title: Row(
-          children: [
-            Text('Trevo'),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(left: 50),
-              child: Row(
+        title: Container(
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Trevo',
+                style: TextStyle(
+                    fontSize: 19,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold),
+              ),
+              Row(
                 children: [
                   Icon(
                     Icons.location_on,
@@ -94,15 +97,15 @@ class _DashBoardState extends State<DashBoard>
                   Text(
                     locationProvider.cityName,
                     style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Montserrat',
-                      /*fontWeight: FontWeight.bold*/
-                    ),
+                        fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(width: 5,)
+            ],
+          ),
         ),
         bottom: TabBar(
           isScrollable: true,
@@ -133,7 +136,6 @@ class _DashBoardState extends State<DashBoard>
                 'Restaurants',
                 style: TextStyle(fontSize: 16),
               ),
-              
             ),
           ],
         ),
@@ -142,7 +144,6 @@ class _DashBoardState extends State<DashBoard>
         controller: _tabController,
         children: [
           CameraTab(),
-
           DisplayPlaces(
             placesProvider: placesProvider,
             cityName: locationProvider.cityName,
@@ -163,7 +164,6 @@ class DataSearch extends SearchDelegate<String> {
     "Amsterdam",
     "Antalya",
     "Athens",
-    "Atlanta",
     "Auckland",
     "Bangalore",
     "Bangkok",

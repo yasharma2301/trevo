@@ -30,13 +30,13 @@ class _DelayedAnimationState extends State<DelayedAnimation>
             begin: widget.startOffset ?? Offset(0.0, 0.35), end: Offset.zero)
         .animate(curve);
 
-    if (widget.delay == null) {
-      _controller.forward();
-    } else {
-      Timer(Duration(milliseconds: widget.delay), () {
+      if (widget.delay == null) {
         _controller.forward();
-      });
-    }
+      } else {
+        Timer(Duration(milliseconds: widget.delay), () {
+          _controller.forward();
+        });
+      }
   }
 
   @override
