@@ -3,9 +3,9 @@ import 'package:geocoder/geocoder.dart';
 
 import 'package:provider/provider.dart';
 import 'package:trevo/shared/colors.dart';
-import 'package:trevo/ui/Data%20Display/displayPlaces.dart';
-import 'package:trevo/ui/Data%20Display/displayRestaurants.dart';
-import 'package:trevo/ui/Data%20Display/display_hotels.dart';
+import 'package:trevo/ui/Data_Display/displayPlaces.dart';
+import 'package:trevo/ui/Data_Display/displayRestaurants.dart';
+import 'package:trevo/ui/Data_Display/display_hotels.dart';
 import 'package:trevo/ui/Home/pages/cameraTab.dart';
 import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';

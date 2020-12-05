@@ -13,7 +13,6 @@ import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
 import 'package:camera/camera.dart';
 
-
 List<CameraDescription> cameras;
 String cityName;
 double latitude;
@@ -34,7 +33,7 @@ Future<void> main() async {
     cityName = first.locality;
     latitude = first.coordinates.latitude;
     longitude = first.coordinates.longitude;
-else{
+  } else {
     // Basically India Gate's coordinates
     cityName = "Delhi";
     latitude = 28.6129;
