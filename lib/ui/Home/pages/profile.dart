@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/shared/delayed_animation.dart';
 import 'package:trevo/ui/Home/pages/logoutButton.dart';
-import 'file:///C:/Users/Shivansh/Desktop/Flutter%20Projects/trevo/lib/ui/Tiles/profileTile.dart';
+import 'package:trevo/ui/Tiles/profileTile.dart';
 import 'package:trevo/utils/auth.dart';
 import 'package:trevo/utils/databaseService.dart';
 

@@ -25,9 +25,9 @@ Future<void> main() async {
     final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.medium);
     var currentUserLatLong =
-        new Coordinates(position.latitude, position.longitude);
+    new Coordinates(position.latitude, position.longitude);
     final address =
-        await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
+    await Geocoder.local.findAddressesFromCoordinates(currentUserLatLong);
 
     final first = address.first;
     cityName = first.locality;
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
           create: (_) => LocationProviderClass(cityName),
         ),
         ChangeNotifierProvider<PlacesProvider>(
-          create: (_) => PlacesProvider(),
+          create: (_) => PlacesProvider(cityName),
         ),
         StreamProvider(
           create: (context) => context.read<AuthService>().authStateChange,

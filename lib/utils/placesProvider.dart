@@ -3,23 +3,28 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:trevo/Models/places.dart';
+import 'package:trevo/main.dart';
 
 class PlacesProvider with ChangeNotifier {
   bool loading = true;
   String error;
   PlacesAPI placesAPI = new PlacesAPI();
 
+  PlacesProvider(String city){
+    fetchAttractions(cityName);
+  }
+
   Future<bool> fetchAttractions(String cityName) async {
     setLoading(true);
     await PlacesAPICall(cityName).fetchAttractionsFromAPI().then((data) {
       if (data.statusCode == 200) {
         placesAPI = PlacesAPI.fromJson(jsonDecode(data.body));
-        print(placesAPI.totalCount);
-        setLoading(false);
+        loading = false;
         notifyListeners();
         return true;
       } else {
-        print('error');
+        setError('Can\'t reach our servers right now!\nTry again later.');
+        setLoading(false);
         return false;
       }
     });
@@ -51,6 +56,5 @@ class PlacesAPICall {
 
   Future<http.Response> fetchAttractionsFromAPI() {
     return http.get(baseUrl + cityName);
-
   }
 }

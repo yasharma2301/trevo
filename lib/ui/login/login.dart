@@ -1,4 +1,5 @@
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       });
     super.initState();
   }
-
+  bool passwordVisible = true, passwordEmpty = true;
   @override
   void dispose() {
     super.dispose();
@@ -115,10 +116,26 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(10),
                       color: White.withOpacity(0.8)),
                   child: TextField(
+                    obscureText: passwordVisible,
                     onChanged: (value) {},
                     controller: _passwordController,
                     style: TextStyle(color: BottleGreen),
                     decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          icon: Icon(
+                            passwordVisible
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: BottleGreen.withOpacity(0.6),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              passwordVisible = !passwordVisible;
+                            });
+                          },
+                        ),
                         icon: Icon(
                           Icons.vpn_key,
                           color: Teal,
@@ -149,20 +166,20 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 ),
                 GestureDetector(
                   onTap: () {
-                    String email = _emailController.text;
-                    String password = _passwordController.text;
-                    if (email == null || password == null) {
-                      // Fields cannot be empty
+                    String email = _emailController.text.toString();
+                    String password = _passwordController.text.toString();
+                    if (email == '' || password == '') {
+                      showFlashBar('Fields cannot be empty.', context);
                     } else if (!emailRegexPass(email)) {
-                      // input a valid email
+                      showFlashBar('Please input a valid email.', context);
                     } else if (!passwordRegexPass(password)) {
-                      // password should be longer than 6 characters
+                      showFlashBar('Password should be longer than 6 characters.', context);
                     } else {
                       loginProvider
                           .signInWithEmailAndPassword(email, password)
                           .then((value) => {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Home()))
+                                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+                                    builder: (context) => Home()), (Route<dynamic> route) => false)
                               });
                     }
                   },

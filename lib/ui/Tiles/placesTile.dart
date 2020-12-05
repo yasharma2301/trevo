@@ -7,11 +7,11 @@ class PlacesTile extends StatelessWidget {
 
   const PlacesTile(
       {Key key,
-        this.imageUrl,
-        this.description,
-        this.attractionName,
-        this.distance,
-        this.readMore})
+      this.imageUrl,
+      this.description,
+      this.attractionName,
+      this.distance,
+      this.readMore})
       : super(key: key);
 
   @override
@@ -30,14 +30,41 @@ class PlacesTile extends StatelessWidget {
             child: Hero(
               tag: imageUrl,
               child: Container(
-                height: 200,
+                height: 190,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: BottleGreen,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(5),
                       topLeft: Radius.circular(5)),
-                  image: DecorationImage(
-                      image: NetworkImage(imageUrl), fit: BoxFit.cover),
+                ),
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder: (BuildContext context, Object exception,
+                      StackTrace stackTrace) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.error,
+                            color: LightGrey,
+                            size: 35,
+                          ),
+                          Text(
+                            'Aww snap!\nCannot load at the moment.',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -152,11 +179,11 @@ class ReadAboutPlace extends StatefulWidget {
 
   const ReadAboutPlace(
       {Key key,
-        this.imageUrl,
-        this.description,
-        this.attractionName,
-        this.distance,
-        this.readMore})
+      this.imageUrl,
+      this.description,
+      this.attractionName,
+      this.distance,
+      this.readMore})
       : super(key: key);
 
   @override
@@ -208,8 +235,8 @@ class _ReadAboutPlaceState extends State<ReadAboutPlace> {
                     child: Container(
                       height: 60,
                       width: 60,
-                      decoration: BoxDecoration(
-                          color: White, shape: BoxShape.circle),
+                      decoration:
+                          BoxDecoration(color: White, shape: BoxShape.circle),
                       child: IconButton(
                         icon: Icon(
                           Icons.link,

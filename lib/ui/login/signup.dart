@@ -16,7 +16,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
-
+  bool passwordVisible = true, passwordEmpty = true;
   double _scale;
   AnimationController _controller;
 
@@ -128,10 +128,26 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(10),
                       color: White.withOpacity(0.8)),
                   child: TextField(
+                    obscureText: passwordVisible,
                     onChanged: (value) {},
                     controller: _passwordController,
                     style: TextStyle(color: BottleGreen),
                     decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          icon: Icon(
+                            passwordVisible
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: BottleGreen.withOpacity(0.6),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              passwordVisible = !passwordVisible;
+                            });
+                          },
+                        ),
                         border: InputBorder.none,
                         hintText: "Enter Password",
                         hintStyle: TextStyle(color: Teal, fontSize: 17)),
@@ -142,21 +158,21 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                 ),
                 GestureDetector(
                   onTap: () {
-                    String email = _emailController.text;
-                    String password = _passwordController.text;
-                    String name = _nameController.text;
-                    if (email == null || password == null) {
-                      // Fields cannot be empty
+                    String email = _emailController.text.toString();
+                    String password = _passwordController.text.toString();
+                    String name = _nameController.text.toString();
+                    if (email == '' || password == '' || name =='') {
+                      showFlashBar('Fields cannot be empty.', context);
                     } else if (!emailRegexPass(email)) {
-                      // input a valid email
+                      showFlashBar('Please input a valid email.', context);
                     } else if (!passwordRegexPass(password)) {
-                      // password should be longer than 6 characters
+                      showFlashBar('Password should be longer than 6 characters.', context);
                     } else {
                       loginProvider
                           .signUpWithEmailAndPassword(email, password, name)
                           .then((value) => {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Home()))
+                                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+                                    builder: (context) => Home()), (Route<dynamic> route) => false)
                               });
                     }
                   },
