@@ -26,9 +26,11 @@ class _DisplayHotelsState extends State<DisplayHotels> {
   bool isLoading;
 
   void getImageUrls() async {
-    setState(() {
-      isLoading = true;
-    });
+    if(this.mounted) {
+      setState(() {
+        isLoading = true;
+      });
+    }
     print("run");
     final data = await http
         .get("https://trevo-server.herokuapp.com/hotels/${widget.cityName}");
@@ -41,9 +43,11 @@ class _DisplayHotelsState extends State<DisplayHotels> {
       priceData.add(item["price"]);
     }
 
-    setState(() {
-      isLoading = false;
-    });
+    if(this.mounted) {
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   @override
