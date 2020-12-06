@@ -1,0 +1,2115 @@
+{
+  "results_found": 2058,
+  "results_start": 0,
+  "results_shown": 20,
+  "restaurants": [
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500078,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500078",
+        "name": "Orchard",
+        "url": "https:\/\/www.zomato.com\/dehradun\/orchard-rajpur?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "3 D, Dak Patti, Near Mdda Park, Rajpur, Dehradun",
+          "locality": "Rajpur",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3892433602",
+          "longitude": "78.0947829410",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Rajpur, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Chinese, Tibetan, Thai, Momos",
+        "timings": "12:30 PM to 10 PM (Mon, Wed, Thu, Fri, Sat, Sun), Closed (Tue)",
+        "average_cost_for_two": 800,
+        "price_range": 3,
+        "currency": "Rs.",
+        "highlights": [
+          "Seating Available",
+          "Cash",
+          "Debit Card",
+          "Dinner",
+          "Credit Card",
+          "Lunch",
+          "Takeaway Available",
+          "Free Parking",
+          "Live Music",
+          "Free Wifi",
+          "Table Reservation Not Required",
+          "Outdoor Seating",
+          "Wifi"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "",
+        "user_rating": {
+          "aggregate_rating": "4.8",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.8"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "800"
+            }
+          },
+          "votes": 862
+        },
+        "all_reviews_count": 472,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/orchard-rajpur\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 780,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/orchard-rajpur\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500078",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/orchard-rajpur\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 9917733111",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Casual Dining"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500419,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500419",
+        "name": "Lala Jee's Angeethi",
+        "url": "https:\/\/www.zomato.com\/dehradun\/lala-jees-angeethi-paltan-bazaar?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "70-A, New Connaught Place, Paltan Bazaar, Dehradun",
+          "locality": "Paltan Bazaar",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3262317000",
+          "longitude": "78.0343250000",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Paltan Bazaar, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "North Indian, Chinese",
+        "timings": "5 PM to 10 PM",
+        "average_cost_for_two": 300,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Cash",
+          "Takeaway Available",
+          "Dinner",
+          "Delivery"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "",
+        "user_rating": {
+          "aggregate_rating": "4.7",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.7"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "800"
+            }
+          },
+          "votes": 106
+        },
+        "all_reviews_count": 33,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/lala-jees-angeethi-paltan-bazaar\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 27,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/lala-jees-angeethi-paltan-bazaar\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500419",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/lala-jees-angeethi-paltan-bazaar\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 8449985888, +91 9917077888",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500011,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500011",
+        "name": "Kalsang Friends Corner",
+        "url": "https:\/\/www.zomato.com\/dehradun\/kalsang-friends-corner-hathibarkala-salwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "opp - OSHO ,88\/A,  Rajpur Road, Dehradun",
+          "locality": "Hathibarkala Salwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3468718379",
+          "longitude": "78.0625085905",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Hathibarkala Salwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Chinese, Korean, Tibetan, Momos, Desserts",
+        "timings": "12 Noon to 10:30 PM (Mon-Sun)",
+        "average_cost_for_two": 800,
+        "price_range": 3,
+        "currency": "Rs.",
+        "highlights": [
+          "Lunch",
+          "Credit Card",
+          "No Alcohol Available",
+          "Dinner",
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "Live Sports Screening",
+          "Indoor Seating",
+          "Air Conditioned",
+          "Smoking Area",
+          "Outdoor Seating"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500011_RESTAURANT_69cb903b12db601ca956c45422677a09.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.6",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.6"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "800"
+            }
+          },
+          "votes": 1163
+        },
+        "all_reviews_count": 504,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/kalsang-friends-corner-hathibarkala-salwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 959,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/kalsang-friends-corner-hathibarkala-salwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500011_RESTAURANT_69cb903b12db601ca956c45422677a09.jpg",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500011",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/kalsang-friends-corner-hathibarkala-salwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 9639430772, +91 9557270285",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Casual Dining"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500393,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500393",
+        "name": "The Buffet Snack Shop",
+        "url": "https:\/\/www.zomato.com\/dehradun\/the-buffet-snack-shop-chukkuwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "17\/1, Rajpur Road, Chukkuwala, Dehradun",
+          "locality": "Chukkuwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3269298279",
+          "longitude": "78.0449585617",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Chukkuwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Fast Food",
+        "timings": "10:30 AM to 10:30 PM",
+        "average_cost_for_two": 100,
+        "price_range": 1,
+        "currency": "Rs.",
+        "highlights": [
+          "No Alcohol Available",
+          "Cash",
+          "Lunch",
+          "Takeaway Available",
+          "Dinner",
+          "Pure Veg",
+          "Outdoor Seating",
+          "Indoor Seating",
+          "Free Parking"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "",
+        "user_rating": {
+          "aggregate_rating": "4.6",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.6"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "800"
+            }
+          },
+          "votes": 501
+        },
+        "all_reviews_count": 174,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/the-buffet-snack-shop-chukkuwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 80,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/the-buffet-snack-shop-chukkuwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500393",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/the-buffet-snack-shop-chukkuwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2658589",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Bakery"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 19119832,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "19119832",
+        "name": "Banarasi Paan Cafe",
+        "url": "https:\/\/www.zomato.com\/dehradun\/banarasi-paan-cafe-chukkuwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "Shop 52, Opposite Doon School, Chakrata Road, Near Singh Petrol Pump, Chukkuwala, Dehradun",
+          "locality": "Chukkuwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3301129000",
+          "longitude": "78.0300423000",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Chukkuwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Paan",
+        "timings": "11 AM to 11 PM",
+        "average_cost_for_two": 150,
+        "price_range": 1,
+        "currency": "Rs.",
+        "highlights": [
+          "Delivery",
+          "Takeaway Available",
+          "Cash"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "",
+        "user_rating": {
+          "aggregate_rating": "4.6",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.6"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "800"
+            }
+          },
+          "votes": 104
+        },
+        "all_reviews_count": 3,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/banarasi-paan-cafe-chukkuwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 13,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/banarasi-paan-cafe-chukkuwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/19119832",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/banarasi-paan-cafe-chukkuwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 9410102486",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Paan Shop"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500498,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500498",
+        "name": "South Indian Vibes Restaurant",
+        "url": "https:\/\/www.zomato.com\/dehradun\/south-indian-vibes-restaurant-karanpur?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "3, First & Second Floor, Astley Hall, Rajpur Road, Karanpur, Dehradun",
+          "locality": "Karanpur",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3278730000",
+          "longitude": "78.0462140000",
+          "zipcode": "248001",
+          "country_id": 1,
+          "locality_verbose": "Karanpur, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "South Indian",
+        "timings": "10am \u2013 11pm (Mon-Sun)",
+        "average_cost_for_two": 500,
+        "price_range": 3,
+        "currency": "Rs.",
+        "highlights": [
+          "Lunch",
+          "Cash",
+          "Delivery",
+          "No Alcohol Available",
+          "Dinner",
+          "Takeaway Available",
+          "Breakfast",
+          "Indoor Seating",
+          "Air Conditioned",
+          "Pure Veg",
+          "Table Reservation Not Required",
+          "Wifi"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/8\/3500498\/c20779469a57e72efebd18ddb472e965.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.5",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.5"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 1112
+        },
+        "all_reviews_count": 277,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/south-indian-vibes-restaurant-karanpur\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 185,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/south-indian-vibes-restaurant-karanpur\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/8\/3500498\/c20779469a57e72efebd18ddb472e965.jpg?output-format=webp",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500498",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/south-indian-vibes-restaurant-karanpur\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 7078234567, +91 7078345678",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Casual Dining"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 17971273,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "17971273",
+        "name": "Eddie's Patisserie",
+        "url": "https:\/\/www.zomato.com\/dehradun\/eddies-patisserie-khurbura?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "102 Yamuna Colony, Above Punjab National Bank, Khurbura, Dehradun",
+          "locality": "Khurbura",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3312886192",
+          "longitude": "78.0283305421",
+          "zipcode": "248001",
+          "country_id": 1,
+          "locality_verbose": "Khurbura, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Bakery",
+        "timings": "11am \u2013 8:30pm (Mon, Wed, Thu), Closed (Tue),11am \u2013 10pm (Fri-Sun)",
+        "average_cost_for_two": 350,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Takeaway Available",
+          "Seating Available",
+          "Cash",
+          "Outdoor Seating",
+          "Smoking Area",
+          "Digital Payments Accepted"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/17971273_RESTAURANT_6fffc1daf2a015a592b732b8716908bd.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.5",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.5"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 270
+        },
+        "all_reviews_count": 135,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/eddies-patisserie-khurbura\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 401,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/eddies-patisserie-khurbura\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/17971273_RESTAURANT_6fffc1daf2a015a592b732b8716908bd.jpg?output-format=webp",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/17971273",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/eddies-patisserie-khurbura\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2531002, +91 7895202808",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Bakery"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 19033955,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "19033955",
+        "name": "Asia Seven",
+        "url": "https:\/\/www.zomato.com\/dehradun\/asia-seven-jakhan?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "422, Rajpur Road, Opposite Old Kata Jakhan, Dehradun",
+          "locality": "Jakhan",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3600959000",
+          "longitude": "78.0670739000",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Jakhan, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Chinese, Japanese, Thai, Seafood, Momos, Sushi, Beverages",
+        "timings": "12noon \u2013 11pm (Mon-Sun)",
+        "average_cost_for_two": 1200,
+        "price_range": 4,
+        "currency": "Rs.",
+        "highlights": [
+          "Lunch",
+          "Delivery",
+          "Credit Card",
+          "Dinner",
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "Fullbar",
+          "Free Wifi",
+          "Air Conditioned",
+          "Indoor Seating",
+          "Table booking recommended"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/5\/19033955\/73456962f9a7e09bc5863d200474280a.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.5",
+          "rating_text": "Excellent",
+          "rating_color": "3F7E00",
+          "rating_obj": {
+            "title": {
+              "text": "4.5"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 367
+        },
+        "all_reviews_count": 149,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/asia-seven-jakhan\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 99,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/asia-seven-jakhan\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/5\/19033955\/73456962f9a7e09bc5863d200474280a.jpg",
+        "medio_provider": true,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/19033955",
+        "is_table_reservation_supported": 1,
+        "has_table_booking": 1,
+        "book_url": "https:\/\/www.zomato.com\/dehradun\/asia-seven-jakhan\/book?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/asia-seven-jakhan\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 8393938882",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Casual Dining"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500484,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500484",
+        "name": "Kalsang AMA Cafe",
+        "url": "https:\/\/www.zomato.com\/dehradun\/kalsang-ama-cafe-hathibarkala-salwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "88\/a Rajpur Road, Dehradun",
+          "locality": "Hathibarkala Salwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3468567924",
+          "longitude": "78.0623996258",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Hathibarkala Salwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Cafe, Pizza, Burger, Continental, Fast Food, Desserts, Beverages",
+        "timings": "10 AM to 11 PM",
+        "average_cost_for_two": 650,
+        "price_range": 3,
+        "currency": "Rs.",
+        "highlights": [
+          "No Alcohol Available",
+          "Dinner",
+          "Credit Card",
+          "Lunch",
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "Outdoor Seating",
+          "Air Conditioned",
+          "Wifi",
+          "Desserts and Bakes",
+          "Indoor Seating",
+          "Free Wifi"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500484_RESTAURANT_82f34d69f769f76a5e113b8768b2df13.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 1247
+        },
+        "all_reviews_count": 523,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/kalsang-ama-cafe-hathibarkala-salwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 1511,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/kalsang-ama-cafe-hathibarkala-salwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500484_RESTAURANT_82f34d69f769f76a5e113b8768b2df13.jpg",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500484",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/kalsang-ama-cafe-hathibarkala-salwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 9557270285",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Caf\u00e9"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 18754629,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "18754629",
+        "name": "Domino's Pizza",
+        "url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-rajpur?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "65- A, Bhel Chowk, Ravindrapuri, Hathibarkala Salwala, Rajpur Road, Dehradun",
+          "locality": "Rajpur",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3338660000",
+          "longitude": "78.0514830000",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Rajpur, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Pizza, Fast Food",
+        "timings": "10:57 AM to 11 PM",
+        "average_cost_for_two": 400,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "No Alcohol Available",
+          "Dinner",
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "Lunch",
+          "Delivery",
+          "Credit Card",
+          "Free Parking",
+          "Indoor Seating",
+          "Air Conditioned"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/chains\/8\/3500058\/a3f876979c7b1a123ff8d0548d774cb1.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 3432
+        },
+        "all_reviews_count": 90,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-rajpur\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 123,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-rajpur\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/chains\/8\/3500058\/a3f876979c7b1a123ff8d0548d774cb1.jpg",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/18754629",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-rajpur\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2746501",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Quick Bites"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500062,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500062",
+        "name": "Domino's Pizza",
+        "url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-dharampur?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "Shop G-001, Ground Floor, Shree Tower, Village Chak Ajabpur Kalan, Dharampur, Dehradun",
+          "locality": "Dharampur",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.2931300000",
+          "longitude": "78.0589700000",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Dharampur, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Pizza, Fast Food",
+        "timings": "10:57 AM to 11 PM",
+        "average_cost_for_two": 400,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Lunch",
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "No Alcohol Available",
+          "Dinner",
+          "Delivery",
+          "Credit Card",
+          "Indoor Seating",
+          "Digital Payments Accepted",
+          "Free Parking",
+          "Air Conditioned"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/chains\/8\/3500058\/a3f876979c7b1a123ff8d0548d774cb1.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 3043
+        },
+        "all_reviews_count": 59,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-dharampur\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 64,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-dharampur\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/chains\/8\/3500058\/a3f876979c7b1a123ff8d0548d774cb1.jpg?output-format=webp",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500062",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-dharampur\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 8650710651",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Quick Bites"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500969,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500969",
+        "name": "Cafe De Piccolo",
+        "url": "https:\/\/www.zomato.com\/cafedepiccolo?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "180 Rajpur Road, Dehra Dun, Rajpur, Dehradun",
+          "locality": "Rajpur",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3754701099",
+          "longitude": "78.0825252458",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Rajpur, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Cafe, Italian",
+        "timings": "11 AM to 10 PM",
+        "average_cost_for_two": 400,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Takeaway Available",
+          "Breakfast",
+          "Credit Card",
+          "Seating Available",
+          "Lunch",
+          "No Alcohol Available",
+          "Cash",
+          "Free Parking",
+          "Indoor Seating",
+          "Table booking recommended"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/reviews_photos\/2eb\/2739ff61936e1b1484043a20858552eb_1523724581.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 497
+        },
+        "all_reviews_count": 251,
+        "photos_url": "https:\/\/www.zomato.com\/cafedepiccolo\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 501,
+        "menu_url": "https:\/\/www.zomato.com\/cafedepiccolo\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/reviews_photos\/2eb\/2739ff61936e1b1484043a20858552eb_1523724581.jpg",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500969",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/cafedepiccolo\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 8376856323",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Caf\u00e9"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500250,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500250",
+        "name": "Ellora's Melting Moments",
+        "url": "https:\/\/www.zomato.com\/dehradun\/elloras-melting-moments-chukkuwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "29, Rajpur Road, Dobhalwala, Chukkuwala, Dehradun",
+          "locality": "Chukkuwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3298150000",
+          "longitude": "78.0468350000",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Chukkuwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Bakery, Fast Food, Beverages, Desserts, Chinese",
+        "timings": "8 AM to 10 PM",
+        "average_cost_for_two": 250,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "No Alcohol Available",
+          "Delivery",
+          "Credit Card",
+          "Free Parking",
+          "Pre-Ordering Required",
+          "Digital Payments Accepted",
+          "Indoor Seating",
+          "Air Conditioned",
+          "Desserts and Bakes"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/0\/3500250\/a010dbef5c54230cd183d284e3cf2058.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 4608
+        },
+        "all_reviews_count": 163,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/elloras-melting-moments-chukkuwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 270,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/elloras-melting-moments-chukkuwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/0\/3500250\/a010dbef5c54230cd183d284e3cf2058.jpg?output-format=webp",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500250",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/elloras-melting-moments-chukkuwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2714950",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Bakery"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500060,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500060",
+        "name": "Domino's Pizza",
+        "url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-jakhan?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "Upper Ground Floor, Pacific Mall, Rajpur Road, Jakhan, Dehradun",
+          "locality": "Pacific Mall, Jakhan",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3665390200",
+          "longitude": "78.0705159900",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Pacific Mall, Jakhan, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Pizza, Fast Food",
+        "timings": "10:57 AM to 11 PM",
+        "average_cost_for_two": 400,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Lunch",
+          "Delivery",
+          "Credit Card",
+          "Mall Parking",
+          "No Alcohol Available",
+          "Dinner",
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "Indoor Seating",
+          "Air Conditioned",
+          "Digital Payments Accepted"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/chains\/8\/3500058\/a3f876979c7b1a123ff8d0548d774cb1.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 1835
+        },
+        "all_reviews_count": 68,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-jakhan\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 169,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-jakhan\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/chains\/8\/3500058\/a3f876979c7b1a123ff8d0548d774cb1.jpg",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500060",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/dominos-pizza-jakhan\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "00 1352736700",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Quick Bites"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500430,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500430",
+        "name": "BakeMasters",
+        "url": "https:\/\/www.zomato.com\/dehradun\/bakemasters-chukkuwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "19, Kwality Complex, Rajpur Road, Chukkuwala, Dehradun",
+          "locality": "Chukkuwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3275735000",
+          "longitude": "78.0450511000",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Chukkuwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Bakery, Fast Food, Desserts",
+        "timings": "8 AM to 9:30 PM (Mon-Sat), 11 AM to 2 PM (Sun)",
+        "average_cost_for_two": 300,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Seating Available",
+          "Credit Card",
+          "Takeaway Available",
+          "Cash",
+          "Debit Card",
+          "Delivery",
+          "No Alcohol Available",
+          "Free Parking",
+          "Digital Payments Accepted",
+          "Pre-Ordering Required",
+          "Indoor Seating",
+          "Desserts and Bakes",
+          "Air Conditioned"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/0\/3500430\/d337dae8097435fb089ae8c7d455edb4.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 654
+        },
+        "all_reviews_count": 109,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/bakemasters-chukkuwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 240,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/bakemasters-chukkuwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/0\/3500430\/d337dae8097435fb089ae8c7d455edb4.jpg",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500430",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/bakemasters-chukkuwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2717771, +91 9068664222",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Bakery"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3501134,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3501134",
+        "name": "Super Donuts",
+        "url": "https:\/\/www.zomato.com\/dehradun\/super-donuts-hathibarkala-salwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "Shop 5, Lower Ground Floor, World Trade Tower, Rajpur Road, Chironwaii, Dehradun, Hathibarkala Salwala, Dehradun",
+          "locality": "Hathibarkala Salwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3400425000",
+          "longitude": "78.0600507813",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Hathibarkala Salwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "American, Fast Food, Desserts, Cafe, Italian, Sandwich, Wraps, Burger",
+        "timings": "11 AM to 11 PM",
+        "average_cost_for_two": 400,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Cash",
+          "Dinner",
+          "Debit Card",
+          "Takeaway Available",
+          "Breakfast",
+          "Credit Card",
+          "Delivery",
+          "Desserts and Bakes",
+          "Digital Payments Accepted",
+          "Wifi",
+          "Air Conditioned",
+          "Indoor Seating",
+          "Free Wifi",
+          "Self Service"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/reviews_photos\/394\/246acd87e2a85f6370c30579f8b35394_1515610248.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 806
+        },
+        "all_reviews_count": 118,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/super-donuts-hathibarkala-salwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 600,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/super-donuts-hathibarkala-salwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/reviews_photos\/394\/246acd87e2a85f6370c30579f8b35394_1515610248.jpg?output-format=webp",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3501134",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/super-donuts-hathibarkala-salwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2740059",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Dessert Parlour"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500298,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500298",
+        "name": "Nazim's Kathi Roll",
+        "url": "https:\/\/www.zomato.com\/dehradun\/nazims-kathi-roll-jakhan?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "Opposite Kumar Sweets, Jakhan, Dehradun Nagar Nigam, Dehradun",
+          "locality": "Jakhan",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3626140002",
+          "longitude": "78.0681583285",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Jakhan, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Fast Food, Rolls",
+        "timings": "11 AM to 11 PM (Mon-Sun)",
+        "average_cost_for_two": 300,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Dinner",
+          "Cash",
+          "Takeaway Available",
+          "Lunch",
+          "Delivery",
+          "Indoor Seating",
+          "Digital Payments Accepted"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/pictures\/8\/3500298\/a6983759383bc7b0783af867e81b77b5.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 2382
+        },
+        "all_reviews_count": 54,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/nazims-kathi-roll-jakhan\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 7,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/nazims-kathi-roll-jakhan\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/pictures\/8\/3500298\/a6983759383bc7b0783af867e81b77b5.jpg?output-format=webp",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500298",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/nazims-kathi-roll-jakhan\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 7520372744",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Casual Dining"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500584,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500584",
+        "name": "L'Op\u00e9ra Salon de Th\u00e9",
+        "url": "https:\/\/www.zomato.com\/dehradun\/lop\u00e9ra-salon-de-th\u00e9-karanpur?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "IDA, 46 East Canal Road, Dehradun",
+          "locality": "Karanpur",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3160916234",
+          "longitude": "78.0496088415",
+          "zipcode": "248001",
+          "country_id": 1,
+          "locality_verbose": "Karanpur, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Bakery, Desserts",
+        "timings": "7:30 AM to 11:30 PM",
+        "average_cost_for_two": 1000,
+        "price_range": 4,
+        "currency": "Rs.",
+        "highlights": [
+          "Cash",
+          "Takeaway Available",
+          "Debit Card",
+          "No Alcohol Available",
+          "Delivery",
+          "Credit Card",
+          "Indoor Seating",
+          "Desserts and Bakes"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500584_RESTAURANT_6ef1a75c30683ec564b5a5c97d05a58c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 238
+        },
+        "all_reviews_count": 55,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/lop\u00e9ra-salon-de-th\u00e9-karanpur\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 242,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/lop\u00e9ra-salon-de-th\u00e9-karanpur\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500584_RESTAURANT_6ef1a75c30683ec564b5a5c97d05a58c.jpg?output-format=webp",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500584",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/lop\u00e9ra-salon-de-th\u00e9-karanpur\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "+91 7465030005",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Dessert Parlour"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500394,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500394",
+        "name": "Kumar Sweet Shop",
+        "url": "https:\/\/www.zomato.com\/dehradun\/kumar-sweet-shop-chukkuwala?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "R1, Rajpur Road, Chukkuwala, Dehradun",
+          "locality": "Chukkuwala",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3253308999",
+          "longitude": "78.0426773429",
+          "zipcode": "",
+          "country_id": 1,
+          "locality_verbose": "Chukkuwala, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Desserts",
+        "timings": "8:30 AM to 8:30 PM (Mon-Sun)",
+        "average_cost_for_two": 400,
+        "price_range": 2,
+        "currency": "Rs.",
+        "highlights": [
+          "Dinner",
+          "Seating Available",
+          "Takeaway Available",
+          "Debit Card",
+          "Lunch",
+          "Credit Card",
+          "Cash",
+          "Outdoor Seating",
+          "Table Reservation Not Required",
+          "Pure Veg",
+          "Indoor Seating"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500394_RESTAURANT_459f505d56ee678ab49c9282fdc555b9_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 182
+        },
+        "all_reviews_count": 64,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/kumar-sweet-shop-chukkuwala\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 86,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/kumar-sweet-shop-chukkuwala\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "https:\/\/b.zmtcdn.com\/data\/res_imagery\/3500394_RESTAURANT_459f505d56ee678ab49c9282fdc555b9_c.jpg",
+        "medio_provider": false,
+        "has_online_delivery": 0,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500394",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/kumar-sweet-shop-chukkuwala\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2655757",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Casual Dining"
+        ],
+        "establishment_types": []
+      }
+    },
+    {
+      "restaurant": {
+        "R": {
+          "res_id": 3500426,
+          "is_grocery_store": false,
+          "has_menu_status": {
+            "delivery": -1,
+            "takeaway": -1
+          }
+        },
+        "apikey": "e29223875940edb7f8c991066d3392bb",
+        "id": "3500426",
+        "name": "Doon Bakers and Confectioners",
+        "url": "https:\/\/www.zomato.com\/dehradun\/doon-bakers-and-confectioners-paltan-bazaar?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "location": {
+          "address": "65\/1, Dhamawala bazar, paltan bazar road., Paltan Bazaar, Dehradun",
+          "locality": "Paltan Bazaar",
+          "city": "Dehradun",
+          "city_id": 35,
+          "latitude": "30.3191960869",
+          "longitude": "78.0354562525",
+          "zipcode": "248001",
+          "country_id": 1,
+          "locality_verbose": "Paltan Bazaar, Dehradun"
+        },
+        "switch_to_order_menu": 0,
+        "cuisines": "Bakery, Desserts, Fast Food",
+        "timings": "7 AM to 10 PM (Mon-Sun)",
+        "average_cost_for_two": 200,
+        "price_range": 1,
+        "currency": "Rs.",
+        "highlights": [
+          "Delivery",
+          "Cash",
+          "Takeaway Available",
+          "Desserts and Bakes"
+        ],
+        "offers": [],
+        "opentable_support": 0,
+        "is_zomato_book_res": 0,
+        "mezzo_provider": "OTHER",
+        "is_book_form_web_view": 0,
+        "book_form_web_view_url": "",
+        "book_again_url": "",
+        "thumb": "",
+        "user_rating": {
+          "aggregate_rating": "4.4",
+          "rating_text": "Very Good",
+          "rating_color": "5BA829",
+          "rating_obj": {
+            "title": {
+              "text": "4.4"
+            },
+            "bg_color": {
+              "type": "lime",
+              "tint": "700"
+            }
+          },
+          "votes": 703
+        },
+        "all_reviews_count": 37,
+        "photos_url": "https:\/\/www.zomato.com\/dehradun\/doon-bakers-and-confectioners-paltan-bazaar\/photos?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1#tabtop",
+        "photo_count": 83,
+        "menu_url": "https:\/\/www.zomato.com\/dehradun\/doon-bakers-and-confectioners-paltan-bazaar\/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop",
+        "featured_image": "",
+        "medio_provider": false,
+        "has_online_delivery": 1,
+        "is_delivering_now": 0,
+        "store_type": "",
+        "include_bogo_offers": true,
+        "deeplink": "zomato:\/\/restaurant\/3500426",
+        "is_table_reservation_supported": 0,
+        "has_table_booking": 0,
+        "events_url": "https:\/\/www.zomato.com\/dehradun\/doon-bakers-and-confectioners-paltan-bazaar\/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "phone_numbers": "0135 2657874, +91 9627212520",
+        "all_reviews": {
+          "reviews": [
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            },
+            {
+              "review": []
+            }
+          ]
+        },
+        "establishment": [
+          "Bakery"
+        ],
+        "establishment_types": []
+      }
+    }
+  ]
+}

@@ -30,12 +30,42 @@ class HotelTile extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(5),
                       topRight: Radius.circular(5)),
-                  child: CachedNetworkImage(
+                  child:
+                  Image.network(imgUrl[imgIndex],
+                  fit: BoxFit.fill,
+                  errorBuilder: (_,__,___)
+                    {
+                      return Container(
+                        color: BottleGreen,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.error,
+                                color: LightGrey,
+                                size: 35,
+                              ),
+                              Text(
+                                'Aww snap!\nCannot load at the moment.',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },)
+                  /*CachedNetworkImage(
                     imageUrl: imgUrl[imgIndex],
                     fit: BoxFit.fill,
                     height: 200,
                     errorWidget: (_, __, ___)=> Icon(Icons.error,size: 40,),
-                  ),
+                  ),*/
                 );
               },
               scale: 0.9,

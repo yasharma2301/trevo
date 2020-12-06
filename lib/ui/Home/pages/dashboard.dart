@@ -149,7 +149,7 @@ class _DashBoardState extends State<DashBoard>
             cityName: locationProvider.cityName,
           ),
           DisplayHotels(locationProvider.cityName),
-          DisplayRestaurants()
+          DisplayRestaurants(locationProvider.cityName),
         ],
       ),
     );
