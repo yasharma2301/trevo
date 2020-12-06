@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:camera/camera.dart';
+import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -16,7 +17,6 @@ class _CameraTabState extends State<CameraTab> {
   CameraController controller;
   var imagePath;
   bool showCapturedPhoto = false;
-
   @override
   void initState() {
     super.initState();
@@ -52,7 +52,6 @@ class _CameraTabState extends State<CameraTab> {
       print(e);
     }
   }
-
   @override
   Widget build(BuildContext context) {
     if (!controller.value.isInitialized) {
@@ -76,43 +75,50 @@ class _CameraTabState extends State<CameraTab> {
     }
     return showCapturedPhoto == false
         ? Stack(
-      fit: StackFit.expand,
-      children: [
-        AspectRatio(
-            aspectRatio: controller.value.aspectRatio,
-            child: CameraPreview(controller)),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 20),
-            child: GestureDetector(
-              onTap: onCaptureButtonPressed,
-              child: Container(
-                height: 70,
-                width: 70,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.transparent,
-                    border: Border.all(color: White, width: 3)),
-                child: Center(
-                  child: Container(
-                      height: 50,
-                      width: 50,
+            fit: StackFit.expand,
+            children: [
+              AspectRatio(
+                  aspectRatio: controller.value.aspectRatio,
+                  child: CameraPreview(controller)),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: GestureDetector(
+                    onTap: onCaptureButtonPressed,
+                    child: Container(
+                      height: 70,
+                      width: 70,
                       decoration: BoxDecoration(
-                          color: White.withOpacity(0.2),
-                          shape: BoxShape.circle),
+                          shape: BoxShape.circle,
+                          color: Colors.transparent,
+                          border: Border.all(color: White, width: 3)),
                       child: Center(
-                          child: Icon(
-                            Icons.camera_alt,
-                            color: White,
-                          ))),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              color: White.withOpacity(0.2),
+                              shape: BoxShape.circle),
+                          child: Center(
+                            child: Icon(
+                              Icons.camera_alt,
+                              color: White,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
+              )
+            ],
+          )
+        : Center(
+            child: Image.file(
+            File(imagePath),
+            fit: BoxFit.contain,
           ),
-        )
-      ],
-    )
-        : Center(child: Image.file(File(imagePath),fit: BoxFit.contain,));
+    );
   }
 }

@@ -103,7 +103,9 @@ class _DashBoardState extends State<DashBoard>
                   ),
                 ],
               ),
-              SizedBox(width: 5,)
+              SizedBox(
+                width: 5,
+              )
             ],
           ),
         ),
@@ -298,11 +300,12 @@ class DataSearch extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
+
     final suggestions = query.isEmpty
         ? cities
         : cities
             .where((element) =>
-                element.contains(query) && element.startsWith(query))
+                element.toLowerCase().contains(query) && element.toLowerCase().startsWith(query))
             .toList();
 
     return ListView.builder(
