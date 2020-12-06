@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:trevo/shared/colors.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class PlacesTile extends StatelessWidget {
   final imageUrl, description, attractionName, distance, readMore;
@@ -77,10 +79,11 @@ class PlacesTile extends StatelessWidget {
                 Text(
                   attractionName,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 18,
                       color: BottleGreen,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 2,
@@ -242,7 +245,15 @@ class _ReadAboutPlaceState extends State<ReadAboutPlace> {
                           Icons.link,
                           color: BottleGreen,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => DisplayLink(
+                                link: widget.readMore,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -302,6 +313,29 @@ class _ReadAboutPlaceState extends State<ReadAboutPlace> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DisplayLink extends StatefulWidget {
+  final link;
+
+  const DisplayLink({Key key, this.link}) : super(key: key);
+
+  @override
+  _DisplayLinkState createState() => _DisplayLinkState();
+}
+
+class _DisplayLinkState extends State<DisplayLink> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: WebView(
+          javascriptMode: JavascriptMode.unrestricted,
+          initialUrl: widget.link,
+        ),
       ),
     );
   }

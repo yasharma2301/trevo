@@ -1,16 +1,19 @@
-import 'package:custom_radio_grouped_button/CustomButtons/ButtonTextStyle.dart';
-import 'package:custom_radio_grouped_button/CustomButtons/CustomCheckBoxGroup.dart';
+import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:trevo/Models/storyModel.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trevo/shared/colors.dart';
+import 'package:trevo/shared/globalFunctions.dart';
+import 'package:http/http.dart' as http;
 
 enum StoryModes { Editing, Adding }
 
 class CreateNewStory extends StatefulWidget {
-  final StoryModel storyModel;
+  final DocumentSnapshot documentSnapshot;
   final StoryModes storyMode;
 
-  const CreateNewStory({Key key, this.storyModel, this.storyMode})
+  const CreateNewStory({Key key, this.documentSnapshot, this.storyMode})
       : super(key: key);
 
   @override
@@ -21,17 +24,31 @@ class _CreateNewStoryState extends State<CreateNewStory>
     with SingleTickerProviderStateMixin {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
-  List<String> tags = [];
-
+  String currentDocumentId;
   double height, width;
   double _scale;
   AnimationController _controller;
   bool favourites = false;
   bool adventure = false;
   bool personal = false;
+  String imageAPIEndPoint =
+      'https://api.unsplash.com/photos/random?query=landscape&client_id=GrpCRVRVj03nTaJH34TQHewsnXbrwOqP-bQt2VG5Gxk';
+  bool loading = false;
 
   @override
   void initState() {
+    if (widget.storyMode == StoryModes.Editing) {
+      final snapshot = widget.documentSnapshot;
+      _titleController.text = snapshot['title'];
+      _descriptionController.text = snapshot['description'];
+      currentDocumentId = snapshot.id;
+      List currentList = snapshot['tags'];
+      currentList.forEach((element) {
+        if (element == "favourites") favourites = true;
+        if (element == "adventure") adventure = true;
+        if (element == "personal") personal = true;
+      });
+    }
     _controller = AnimationController(
       vsync: this,
       duration: Duration(
@@ -208,10 +225,10 @@ class _CreateNewStoryState extends State<CreateNewStory>
                           width: width,
                           height: 90,
                           decoration: BoxDecoration(
-                            color: White,
-                            borderRadius: BorderRadius.circular(10),
-                              border: Border.all(width: 2,color: Colors.white)
-                          ),
+                              color: White,
+                              borderRadius: BorderRadius.circular(10),
+                              border:
+                                  Border.all(width: 2, color: Colors.white)),
                           child: Row(
                             children: [
                               Expanded(
@@ -239,7 +256,10 @@ class _CreateNewStoryState extends State<CreateNewStory>
                                         ),
                                         Text(
                                           '#favourites',
-                                          style: TextStyle(color: White,fontWeight: FontWeight.bold,fontSize: 15),
+                                          style: TextStyle(
+                                              color: White,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
                                         ),
                                       ],
                                     ),
@@ -268,7 +288,10 @@ class _CreateNewStoryState extends State<CreateNewStory>
                                         ),
                                         Text(
                                           '#adventure',
-                                          style: TextStyle(color: White,fontWeight: FontWeight.bold,fontSize: 15),
+                                          style: TextStyle(
+                                              color: White,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
                                         ),
                                       ],
                                     ),
@@ -300,7 +323,10 @@ class _CreateNewStoryState extends State<CreateNewStory>
                                         ),
                                         Text(
                                           '#personal',
-                                          style: TextStyle(color: White,fontWeight: FontWeight.bold,fontSize: 15),
+                                          style: TextStyle(
+                                              color: White,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
                                         ),
                                       ],
                                     ),
@@ -318,14 +344,14 @@ class _CreateNewStoryState extends State<CreateNewStory>
                     Align(
                       alignment: Alignment.center,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: addEditNoteWrapper,
                         onTapDown: _onTapDown,
                         onTapUp: _onTapUp,
                         child: Transform.scale(
                           scale: _scale,
                           child: Container(
                             height: 60,
-                            width: width * 0.7,
+                            width: width * 0.75,
                             decoration: BoxDecoration(
                               boxShadow: <BoxShadow>[
                                 BoxShadow(
@@ -333,10 +359,10 @@ class _CreateNewStoryState extends State<CreateNewStory>
                                     blurRadius: 10.0,
                                     offset: Offset(0.0, 5))
                               ],
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(10),
                               gradient: LinearGradient(
                                   colors: [
-                                    BottleGreen.withOpacity(0.8),
+                                    BottleGreen,
                                     Teal,
                                   ],
                                   begin: FractionalOffset.bottomLeft,
@@ -344,8 +370,10 @@ class _CreateNewStoryState extends State<CreateNewStory>
                                   tileMode: TileMode.repeated),
                             ),
                             child: Center(
-                              child: Text(
-                                'Save!',
+                              child: loading? SpinKitCircle(color: Colors.white,size: 36,) : Text(
+                                widget.storyMode == StoryModes.Editing
+                                    ? 'Update!'
+                                    : 'Save!',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -373,32 +401,78 @@ class _CreateNewStoryState extends State<CreateNewStory>
   void _onTapUp(TapUpDetails details) {
     _controller.reverse();
   }
+
+  bool checkDetails() {
+    String title = _titleController.text.toString();
+    String description = _descriptionController.text.toString();
+    if (title == '' || description == '') {
+      showFlashBar("Title and Description are mandatory fields.", context);
+      return false;
+    }
+    return true;
+  }
+
+
+
+  void addEditNoteWrapper() async {
+    setState(() {
+      loading = true;
+    });
+    await http.get(imageAPIEndPoint).then((value) {
+      if (value.statusCode == 200) {
+        final decodedImagesList = jsonDecode(value.body)['urls'];
+        try {
+          String image = decodedImagesList['regular'];
+          addEditNoteUtil(image);
+        } catch (e) {
+          String image = 'https://i.pinimg.com/originals/6b/cb/e1/6bcbe10420ae10b82b550b3d4adeb13e.jpg';
+          addEditNoteUtil(image);
+        }
+      }
+    });
+
+
+  }
+
+  void addEditNoteUtil(String image) async{
+    if (checkDetails()) {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      String uid = sharedPreferences.get('uid');
+      String title = _titleController.text.toString();
+      String description = _descriptionController.text.toString();
+
+      List<String> tagList = List();
+      if (favourites) tagList.add("favourites");
+      if (personal) tagList.add("personal");
+      if (adventure) tagList.add("adventure");
+      tagList.add("all stories");
+      Map<String, dynamic> data = {
+        'title': title,
+        'description': description,
+        'img': image,
+        'tags': tagList
+      };
+      CollectionReference collectionRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('stories');
+      if (widget.storyMode == StoryModes.Editing) {
+        data.remove('img');
+        collectionRef.doc(currentDocumentId).update(data).then((value) {
+          setState(() {
+            loading = false;
+          });
+          Navigator.of(context).pop();
+        });
+      } else {
+        collectionRef.add(data).then((value) {
+          setState(() {
+            loading = false;
+          });
+          Navigator.of(context).pop();
+        });
+      }
+    }
+  }
 }
-//CustomCheckBoxGroup(
-//buttonTextStyle: ButtonTextStyle(
-//textStyle: TextStyle(
-//fontFamily: 'Montserrat',
-//fontSize: 17,
-//fontWeight: FontWeight.w500
-//),
-//),
-//unSelectedBorderColor: BottleGreen,
-//unSelectedColor: White,
-//selectedColor: BottleGreen,
-//buttonLables: [
-//"#favourites",
-//"#adventure",
-//'#personal'
-//],
-//buttonValuesList: [
-//"favourites",
-//"adventure",
-//'personal'
-//],
-//checkBoxButtonValues: (values) {
-//print(values);
-//},
-//enableButtonWrap: true,
-//autoWidth: true,
-//height: 40,
-//),
