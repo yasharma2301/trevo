@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/ui/Tiles/hotelTile.dart';
@@ -22,6 +22,7 @@ class _DisplayHotelsState extends State<DisplayHotels> {
   List distanceData = [], hotelNameData = [];
   List priceData = [];
   List<List<dynamic>> imgUrls = new List<List<dynamic>>();
+  List bookingUrls= [];
   String query = "hotel";
   bool isLoading;
 
@@ -41,6 +42,8 @@ class _DisplayHotelsState extends State<DisplayHotels> {
       imgUrls.add(item["pictures"]);
       distanceData.add(item["distance"]);
       priceData.add(item["price"]);
+      bookingUrls.add(item["viewDealLink"]);
+
     }
 
     if(this.mounted) {
@@ -70,6 +73,7 @@ class _DisplayHotelsState extends State<DisplayHotels> {
                   hotelName: hotelNameData[index],
                   imgUrl: imgUrls[index],
                   hotelPrice: priceData[index],
+                  bookingUrl: bookingUrls[index],
                 );
               },
               itemCount: hotelNameData.length,
