@@ -50,7 +50,7 @@ class _DisplayRestaurantsState extends State<DisplayRestaurants> {
       nameData.add(item["restaurant"]["name"]);
       bookingUrlData.add(item["restaurant"]["url"]);
       addressData.add(item["restaurant"]["location"]["locality_verbose"]);
-      ratingData.add(item["restaurant"]["user_rating"]["aggregate_rating"]);
+      ratingData.add(item["restaurant"]["user_rating"]["aggregate_rating"].toString());
       cuisinesData.add(item["restaurant"]["cuisines"]);
       priceData.add(item["restaurant"]["currency"]+" "+item["restaurant"]["average_cost_for_two"].toString());
       if(item["restaurant"]["featured_image"]!="")

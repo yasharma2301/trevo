@@ -2,14 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:trevo/shared/colors.dart';
+import 'package:trevo/ui/Tiles/placesTile.dart';
 
 class HotelTile extends StatelessWidget {
-  final imgUrl, hotelName, hotelPrice;
+  final imgUrl, hotelName, hotelPrice,bookingUrl;
 
   HotelTile({
     this.hotelName,
     this.imgUrl,
     this.hotelPrice,
+    this.bookingUrl
   });
 
   @override
@@ -27,46 +29,46 @@ class HotelTile extends StatelessWidget {
             child: Swiper(
               itemBuilder: (_, imgIndex) {
                 return ClipRRect(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(5),
-                      topRight: Radius.circular(5)),
-                  child:
-                  Image.network(imgUrl[imgIndex],
-                  fit: BoxFit.fill,
-                  errorBuilder: (_,__,___)
-                    {
-                      return Container(
-                        color: BottleGreen,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.error,
-                                color: LightGrey,
-                                size: 35,
-                              ),
-                              Text(
-                                'Aww snap!\nCannot load at the moment.',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(5),
+                        topRight: Radius.circular(5)),
+                    child: Image.network(
+                      imgUrl[imgIndex],
+                      fit: BoxFit.fill,
+                      errorBuilder: (_, __, ___) {
+                        return Container(
+                          color: BottleGreen,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.error,
+                                  color: LightGrey,
+                                  size: 35,
+                                ),
+                                Text(
+                                  'Aww snap!\nCannot load at the moment.',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },)
-                  /*CachedNetworkImage(
+                        );
+                      },
+                    )
+                    /*CachedNetworkImage(
                     imageUrl: imgUrl[imgIndex],
                     fit: BoxFit.fill,
                     height: 200,
                     errorWidget: (_, __, ___)=> Icon(Icons.error,size: 40,),
                   ),*/
-                );
+                    );
               },
               scale: 0.9,
               viewportFraction: 0.8,
@@ -117,8 +119,17 @@ class HotelTile extends StatelessWidget {
                       ],
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => DisplayLink(
+                              link: bookingUrl,
+                            ),
+                          ),
+                        );
+                      },
                       child: Container(
+                        margin: EdgeInsets.only(right: 10),
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
                             color: Colors.blueAccent[100].withOpacity(0.1),
@@ -129,10 +140,10 @@ class HotelTile extends StatelessWidget {
                               width: 10,
                             ),
                             Text(
-                              'ReadMore',
+                              'Book',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 16,
                                   color: BottleGreen,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w400),
