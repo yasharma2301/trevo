@@ -2,24 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:trevo/shared/colors.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:trevo/ui/Tiles/placesTile.dart';
 
-class PlacesTile extends StatelessWidget {
+class BotPlacesTile extends StatelessWidget {
   final imageUrl, description, attractionName, distance, readMore;
 
-  const PlacesTile(
+  const BotPlacesTile(
       {Key key,
-      this.imageUrl,
-      this.description,
-      this.attractionName,
-      this.distance,
-      this.readMore})
+        this.imageUrl,
+        this.description,
+        this.attractionName,
+        this.distance,
+        this.readMore})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(5)),
       child: Column(
@@ -32,10 +32,10 @@ class PlacesTile extends StatelessWidget {
             child: Hero(
               tag: imageUrl,
               child: Container(
-                height: 190,
+                height: 160,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  color: BottleGreen,
+                  color: Teal,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(5),
                       topLeft: Radius.circular(5)),
@@ -72,7 +72,7 @@ class PlacesTile extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -108,7 +108,7 @@ class PlacesTile extends StatelessWidget {
                               size: 28,
                             ),
                             Text(
-                              distance,
+                              distance.toString().split('km')[0]+' kms',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 16,
@@ -172,173 +172,6 @@ class PlacesTile extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class ReadAboutPlace extends StatefulWidget {
-  final imageUrl, description, attractionName, distance, readMore;
-
-  const ReadAboutPlace(
-      {Key key,
-      this.imageUrl,
-      this.description,
-      this.attractionName,
-      this.distance,
-      this.readMore})
-      : super(key: key);
-
-  @override
-  _ReadAboutPlaceState createState() => _ReadAboutPlaceState();
-}
-
-class _ReadAboutPlaceState extends State<ReadAboutPlace> {
-  double height, width;
-
-  @override
-  Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: White,
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Hero(
-              tag: widget.imageUrl,
-              child: Stack(
-                children: [
-                  Container(
-                    height: 400,
-                    width: width,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      image: DecorationImage(
-                          image: NetworkImage(widget.imageUrl),
-                          fit: BoxFit.cover),
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Colors.transparent, White]),
-                        shape: BoxShape.rectangle,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 20,
-                    right: 20,
-                    child: Material(
-                      color: Colors.transparent,
-                      elevation: 30,
-                      child: Container(
-                        height: 60,
-                        width: 60,
-                        decoration:
-                            BoxDecoration(color: White, shape: BoxShape.circle),
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.link,
-                            color: BottleGreen,
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => DisplayLink(
-                                  link: widget.readMore,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 20,
-                    left: 20,
-                    child: Row(
-                      children: [
-                        Icon(Icons.location_on),
-                        Material(
-                          color: Colors.transparent,
-                          child: Text(
-                            widget.distance,
-                            style: TextStyle(
-                                color: BottleGreen,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'Montserrat',
-                                fontSize: 20),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Padding(
-                padding: EdgeInsets.only(left: 10,right: 10,top: 10),
-                child: Column(
-                  children: [
-                    Text(
-                      widget.attractionName,
-                      style: TextStyle(
-                          color: BottleGreen,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Montserrat',
-                          fontSize: 28),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      widget.description,
-                      style: TextStyle(
-                          color: BottleGreen,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: 'Montserrat',
-                          fontSize: 17),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class DisplayLink extends StatefulWidget {
-  final link;
-
-  const DisplayLink({Key key, this.link}) : super(key: key);
-
-  @override
-  _DisplayLinkState createState() => _DisplayLinkState();
-}
-
-class _DisplayLinkState extends State<DisplayLink> {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: WebView(
-          javascriptMode: JavascriptMode.unrestricted,
-          initialUrl: widget.link,
-        ),
       ),
     );
   }
