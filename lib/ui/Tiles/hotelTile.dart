@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -103,18 +104,19 @@ class HotelTile extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(left: 30),
                           height: 40,
-                          width: 80,
+                          width: 100,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          child: Text(hotelPrice,
+                          child: AutoSizeText(hotelPrice,
                               style: TextStyle(
-                                  fontSize: 19,
+                                  fontSize: 17,
                                   color: Colors.white,
                                   fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold)),
+                                  fontWeight: FontWeight.bold),
+                          maxLines: 1,),
                         )
                       ],
                     ),
