@@ -22,12 +22,12 @@ class _DisplayHotelsState extends State<DisplayHotels> {
   List distanceData = [], hotelNameData = [];
   List priceData = [];
   List<List<dynamic>> imgUrls = new List<List<dynamic>>();
-  List bookingUrls= [];
+  List bookingUrls = [];
   String query = "hotel";
   bool isLoading;
 
   void getImageUrls() async {
-    if(this.mounted) {
+    if (this.mounted) {
       setState(() {
         isLoading = true;
       });
@@ -41,12 +41,16 @@ class _DisplayHotelsState extends State<DisplayHotels> {
       hotelNameData.add(item["hotelName"]);
       imgUrls.add(item["pictures"]);
       distanceData.add(item["distance"]);
-      priceData.add(item["price"]);
+      String temp= item["price"];
+      temp= temp.replaceAll(",", '');
+      temp= temp.substring(2,temp.length);
+      double t= double.parse(temp);
+      t= t*73.57;
+      priceData.add("Rs "+t.toStringAsFixed(2));
       bookingUrls.add(item["viewDealLink"]);
-
     }
 
-    if(this.mounted) {
+    if (this.mounted) {
       setState(() {
         isLoading = false;
       });
