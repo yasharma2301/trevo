@@ -127,24 +127,24 @@ class _ProfileTileState extends State<ProfileTile> {
                 ),
               ),
             ),
-            IgnorePointer(
-              ignoring: widget.title == "Notifications" ? false : true,
-              child: Opacity(
-                opacity: widget.title == "Notifications" ? 1 : 0,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Switch(
-                      onChanged: (value) async {
-                        await _handleSwitch(value);
-                      },
-                      value: isSwitched,
-                    ),
-                  ),
-                ),
-              ),
-            )
+//            IgnorePointer(
+//              ignoring: widget.title == "Notifications" ? false : true,
+//              child: Opacity(
+//                opacity: widget.title == "Notifications" ? 1 : 0,
+//                child: Padding(
+//                  padding: const EdgeInsets.only(right: 10),
+//                  child: Align(
+//                    alignment: Alignment.centerRight,
+//                    child: Switch(
+//                      onChanged: (value) async {
+//                        await _handleSwitch(value);
+//                      },
+//                      value: isSwitched,
+//                    ),
+//                  ),
+//                ),
+//              ),
+//            )
           ],
         ),
       ),

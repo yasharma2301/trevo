@@ -1,9 +1,11 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trevo/shared/colors.dart';
 import 'package:trevo/shared/delayed_animation.dart';
 import 'package:trevo/ui/Home/pages/logoutButton.dart';
+import 'package:trevo/ui/Home/pages/transactions.dart';
 import 'package:trevo/ui/Tiles/profileTile.dart';
 import 'package:trevo/utils/auth.dart';
 import 'package:trevo/utils/databaseService.dart';
@@ -75,19 +77,33 @@ class _ProfileState extends State<Profile> {
                 description: email,
                 dbHelper: databaseService,
               ),
-              ProfileTile(
-                width: width,
-                icon: Icons.notifications,
-                title: 'Notifications',
-                description: 'Always Send',
-                dbHelper: databaseService,
+              GestureDetector(
+                onTap: (){
+                  try{
+                    AppSettings.openNotificationSettings();
+                  }catch(e){
+                    print(e);
+                  }
+                },
+                child: ProfileTile(
+                  width: width,
+                  icon: Icons.notifications,
+                  title: 'Notifications',
+                  description: 'Toggle here',
+                  dbHelper: databaseService,
+                ),
               ),
-              ProfileTile(
-                width: width,
-                icon: Icons.info,
-                title: 'Transactions',
-                description: 'Your travel plans',
-                dbHelper: databaseService,
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Transactions()));
+                },
+                child: ProfileTile(
+                  width: width,
+                  icon: Icons.info,
+                  title: 'Transactions',
+                  description: 'Your travel plans',
+                  dbHelper: databaseService,
+                ),
               ),
               Logout(),
             ],
@@ -108,3 +124,5 @@ class _ProfileState extends State<Profile> {
     return 'Good Evening!';
   }
 }
+
+

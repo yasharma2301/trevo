@@ -9,6 +9,8 @@ import 'package:trevo/ui/Home/pages/profile.dart';
 import 'package:trevo/ui/TrevoBot/chat.dart';
 import 'package:trevo/utils/locationProvider.dart';
 import 'package:trevo/utils/placesProvider.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:trevo/shared/globalFunctions.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,10 +19,30 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentIndex;
+  final FirebaseMessaging _fcm = FirebaseMessaging();
 
   @override
   void initState() {
     super.initState();
+    _fcm.configure(
+      onMessage: (Map<String, dynamic> message) async {
+        print("on: $message");
+        final notification = message['notification'];
+        try{
+          Future.delayed(Duration.zero, () {
+            showNormalFlashBar(notification['title'],notification['body'],context);
+          });
+        }catch(e){
+          print(e);
+        }
+      },
+      onLaunch: (Map<String, dynamic> message) async {
+        print("onLaunch: $message");
+      },
+      onResume: (Map<String, dynamic> message) async {
+        print("onResume: $message");
+      },
+    );
     currentIndex = 0;
   }
 
