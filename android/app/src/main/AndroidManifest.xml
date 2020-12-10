@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.trevo">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -7,7 +8,9 @@
 
    <application
         android:label="trevo"
-        android:icon="@mipmap/ic_launcher">
+        android:requestLegacyExternalStorage="true"
+        android:icon="@mipmap/ic_launcher"
+        tools:targetApi="q">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

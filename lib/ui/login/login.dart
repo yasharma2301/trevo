@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       });
     super.initState();
   }
+
   bool passwordVisible = true, passwordEmpty = true;
+
   @override
   void dispose() {
     super.dispose();
@@ -149,7 +152,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   height: 15,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    _showHintDialog();
+                  },
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Text(
@@ -173,13 +178,17 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     } else if (!emailRegexPass(email)) {
                       showFlashBar('Please input a valid email.', context);
                     } else if (!passwordRegexPass(password)) {
-                      showFlashBar('Password should be longer than 6 characters.', context);
+                      showFlashBar(
+                          'Password should be longer than 6 characters.',
+                          context);
                     } else {
                       loginProvider
                           .signInWithEmailAndPassword(email, password)
                           .then((value) => {
-                                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-                                    builder: (context) => Home()), (Route<dynamic> route) => false)
+                                Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                        builder: (context) => Home()),
+                                    (Route<dynamic> route) => false)
                               });
                     }
                   },
@@ -249,11 +258,170 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     );
   }
 
+  void _showHintDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              backgroundColor: Colors.transparent,
+              child: DialogEmail());
+        });
+  }
+
   void _onTapDown(TapDownDetails details) {
     _controller.forward();
   }
 
   void _onTapUp(TapUpDetails details) {
     _controller.reverse();
+  }
+}
+
+class DialogEmail extends StatefulWidget {
+  @override
+  _DialogEmailState createState() => _DialogEmailState();
+}
+
+class _DialogEmailState extends State<DialogEmail> {
+  double width;
+  double height;
+
+  Future sendPasswordResetLink(String email){
+    return FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
+    TextEditingController _emailController = TextEditingController();
+    return Container(
+      width: width,
+      height: 250,
+      decoration: BoxDecoration(
+        color: LightGrey,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 50,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white24,
+                    offset: Offset(0, 0),
+                    blurRadius: 10,
+                  )
+                ],
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                ),
+                gradient: LinearGradient(
+                    colors: [BottleGreen, DarkBottleGreen],
+                    begin: FractionalOffset.topLeft,
+                    end: FractionalOffset.topRight,
+                    tileMode: TileMode.repeated),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: 60,
+                  ),
+                  Text(
+                    'Forgot Password',
+                    style: TextStyle(
+                        color: LightGrey,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrt'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.close,
+                        color: LightGrey,
+                        size: 26,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30,left: 10,right: 10),
+              child: Column(
+                children: [
+                  Container(
+                    padding:
+                    EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: White.withOpacity(0.8)),
+                    child: TextField(
+                      controller: _emailController,
+                      style: TextStyle(color: BottleGreen),
+                      decoration: InputDecoration(
+                          icon: Icon(
+                            Icons.email,
+                            color: Teal,
+                          ),
+                          border: InputBorder.none,
+                          hintText: "Enter Email",
+                          hintStyle:
+                          TextStyle(color: Teal, fontSize: 17)),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
+                    child: InkWell(
+                      onTap: () {
+                        String email = _emailController.text.toString();
+                        if(emailRegexPass(email)){
+                          sendPasswordResetLink(email).then((value) {
+                            showNormalFlashBar('Success!','A password reset link has been sent to your email.',context);
+                          });
+                        }else{
+                          showFlashBar('Please enter a valid email!',context);
+                        }
+                      },
+                      child: Ink(
+                        width: width,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          color: BottleGreen,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Reset Email",
+                            style: TextStyle(
+                                color: White,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

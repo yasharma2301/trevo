@@ -15,6 +15,7 @@ class AuthService with ChangeNotifier{
   Future<String> signInWithEmailAndPassword(String email,
       String password) async {
     loading = true;
+    notifyListeners();
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password).then((value) => {
         DatabaseService(uid: value.user.uid).setUserDetailsDuringLogin()
@@ -35,15 +36,13 @@ class AuthService with ChangeNotifier{
 
   Future<String> signUpWithEmailAndPassword(String email,
       String password,String name) async {
-    print(loading);
     loading = true;
-    print(loading);
+    notifyListeners();
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       await DatabaseService(uid: _auth.currentUser.uid).addNewUser(name, email);
       loading = false;
-      print(loading);
       notifyListeners();
       return "Signed up Successfully";
     } on FirebaseAuthException catch (e) {
