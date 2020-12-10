@@ -52,7 +52,7 @@ class _ProfileState extends State<Profile> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                greeting(),
+                greeting(DateTime.now().hour),
                 style: TextStyle(
                     color: BottleGreen,
                     fontWeight: FontWeight.w300,
@@ -113,8 +113,7 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  String greeting() {
-    var hour = DateTime.now().hour;
+  String greeting(var hour) {
     if (hour < 12) {
       return 'Good Morning!';
     }

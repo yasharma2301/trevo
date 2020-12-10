@@ -147,6 +147,7 @@ class _CreateNewStoryState extends State<CreateNewStory>
                             color: White,
                           ),
                           child: TextFormField(
+                            key: Key("title"),
                             controller: _titleController,
                             onChanged: (v) {
                               setState(() {});
