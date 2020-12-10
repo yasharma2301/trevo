@@ -30,7 +30,7 @@ And of course Trevo itself is public repo on GitHub.
 # Sneak Peek
 
 <img src="snapshots/1.jpeg" height="400"> <img src="snapshots/2.jpeg" height="400"> <img src="snapshots/3.jpeg" height="400"> <img src="snapshots/4.jpeg" height="400">
-<img src="snapshots/5.jpeg" height="400"> <img src="snapshots/6.jpeg" height="400"> <img src="snapshots/7.jpeg" height="400">
+<img src="snapshots/5.jpeg" height="400"> <img src="snapshots/6.jpeg" height="400"> <img src="snapshots/7.jpeg" height="400"> <img src="snapshots/8.jpeg" height="400">
 
 # Getting Started
 
