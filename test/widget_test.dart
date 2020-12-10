@@ -1,30 +1,27 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:trevo/main.dart';
+import 'package:trevo/ui/Home/pages/createNewStory.dart';
+import 'package:trevo/ui/Tiles/restaurantTile.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  testWidgets('Create New Story Widget Test', (WidgetTester tester) async {
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    Widget makeTestableWidget(Widget child)
+    {
+      return MaterialApp(        home: child,
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      );
+    }
+    await tester.pumpWidget(makeTestableWidget(CreateNewStory()));
+    expect(find.byKey(Key("title")), findsOneWidget);
+    var title= find.byKey(Key("title"));
+    await tester.enterText(title, "hi");
+    expect(find.text("hi"), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+
+
   });
 }
