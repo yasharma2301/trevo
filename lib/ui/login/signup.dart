@@ -43,10 +43,9 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final loginProvider = Provider.of<AuthService>(context,listen: false);
+    final loginProvider = Provider.of<AuthService>(context);
     _scale = 1 - _controller.value;
     final double width = MediaQuery.of(context).size.width;
-    final double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         backgroundColor: LightGrey,
@@ -215,22 +214,6 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               ),
                       ),
                     ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-//                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SignUp()));
-                  },
-                  child: Text(
-                    'Terms and Conditions',
-                    style: TextStyle(
-                        color: Teal,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 15,
-                        decoration: TextDecoration.underline),
                   ),
                 ),
                 SizedBox(

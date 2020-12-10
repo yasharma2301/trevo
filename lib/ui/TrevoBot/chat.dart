@@ -12,6 +12,8 @@ import 'package:trevo/ui/Tiles/placesTile.dart';
 
 import 'botPlacesTile.dart';
 
+String res =
+    'HHere are some details: I guess there are not many super fast flights for your flight from London toJaipur on date: 12/12/2020 To book comfotable and affordable flightsand look for more details here: ```https://www.makemytrip.com/flights/``` would you like me to configure a trip for you??';
 List<Map> messages = List();
 
 class ChatBot extends StatefulWidget {
@@ -22,33 +24,40 @@ class ChatBot extends StatefulWidget {
 class _ChatBotState extends State<ChatBot> {
   @override
   void initState() {
-    if(messages.isEmpty){
-      messages.insert(0, {
-        "data": 0,
-        "message": "HHi there! How can I help??"
-      });
+    if (messages.isEmpty) {
+      messages.insert(0, {"data": 0, "message": "HHi there! How can I help??"});
     }
     super.initState();
   }
+
+  bool called = false;
+  bool called2 = false;
+
   void response(query) async {
     AuthGoogle authGoogle =
-        await AuthGoogle(fileJson: "assets/trevo-brua-9223455e375a.json")
-            .build();
+    await AuthGoogle(fileJson: "assets/trevo-brua-9223455e375a.json")
+        .build();
     Dialogflow dialogflow =
-        Dialogflow(authGoogle: authGoogle, language: Language.english);
+    Dialogflow(authGoogle: authGoogle, language: Language.english);
     AIResponse aiResponse = await dialogflow.detectIntent(query);
-    try{
-      if (aiResponse
-          .getListMessage()[0]["text"]["text"][0]
-          .toString()
-          .startsWith("This is what I've configured")) {
-        // Post transaction to firebase
-        addNewTransaction(
-            aiResponse.getListMessage()[0]["text"]["text"][0].toString());
-      }
-    }catch(e){
-      print(e);
-    }
+//    String msg;
+//    try{
+//      msg = aiResponse.getListMessage()[0]["text"]["text"].toString();
+//    }catch(e){
+//      msg = res;
+//    }
+//    try{
+//      if (aiResponse
+//          .getListMessage()[0]["text"]["text"][0]
+//          .toString()
+//          .startsWith("This is what I've configured")) {
+//        // Post transaction to firebase
+//        addNewTransaction(
+//            aiResponse.getListMessage()[0]["text"]["text"][0].toString());
+//      }
+//    }catch(e){
+//      print(e);
+//    }
     setState(() {
       messages.insert(0, {
         "data": 0,
@@ -56,6 +65,57 @@ class _ChatBotState extends State<ChatBot> {
       });
     });
   }
+
+//  void response(query) async {
+//    if (called) {
+//      setState(() {
+//        called2 = true;
+//      });
+//    }
+//    AuthGoogle authGoogle =
+//        await AuthGoogle(fileJson: "assets/trevo-brua-9223455e375a.json")
+//            .build();
+//    Dialogflow dialogflow =
+//        Dialogflow(authGoogle: authGoogle, language: Language.english);
+//    AIResponse aiResponse = await dialogflow.detectIntent(query);
+//    var k ;
+//    if(called2==false){
+//      try{
+//        k = aiResponse.queryResult.fulfillmentMessages[0]['text']['text'][0];
+//      }catch(e){
+//        print(e);
+//      }
+//      if (k == 'From where would you like to board?') {
+//        print(k);
+//        setState(() {
+//          called = true;
+//        });
+//      }
+//    }
+//    try {
+//      if (aiResponse
+//          .getListMessage()[0]["text"]["text"][0]
+//          .toString()
+//          .startsWith("This is what I've configured")) {
+//        // Post transaction to firebase
+//        addNewTransaction(
+//            aiResponse.getListMessage()[0]["text"]["text"][0].toString());
+//      }
+//    } catch (e) {
+//      print(e);
+//    }
+//    setState(() {
+//      messages.insert(0, {
+//        "data": 0,
+//        "message": called2==true
+//            ? res
+//            : aiResponse.getListMessage()[0]["text"]["text"].toString()??res
+//      });
+//      if(called2){
+//        called = false;
+//      }
+//    });
+//  }
 
   final messageController = TextEditingController();
 

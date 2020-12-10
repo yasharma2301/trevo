@@ -1,0 +1,9 @@
+0 Taj Mahal
+1 Statue of Liberty
+2 India Gate
+3 Lotus Temple
+4 Hawa Mahal
+5 Chichenitza
+6 Christ The Reddemer
+7 Colosseum
+8 Machu Pichu
