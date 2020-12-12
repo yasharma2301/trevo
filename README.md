@@ -24,9 +24,6 @@ Apps are boring until they have animation in them. Trevo comes with a user frien
 | Monument detection | Tensor flow lite |
 | Backend | Firebase |
 
-Trevo has depends on a number of public repositories.  
-And of course Trevo itself is public repo on GitHub.
-
 # Sneak Peek
 
 <img src="snapshots/1.jpeg" height="400"> <img src="snapshots/2.jpeg" height="400"> <img src="snapshots/3.jpeg" height="400"> <img src="snapshots/4.jpeg" height="400">
