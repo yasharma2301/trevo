@@ -2,7 +2,7 @@
 #### - Personal travel assistant
 
 
-Trevo is a cross platform travel application. Users can look for hotels,restaurants and popular places to visit. The app is backed up with an AI chatbot to configure travel plans. App also allows people to recognize monuments using mchine learning model. Apart from this people can save their travel stories. The app is integrated with some other features as well.
+Trevo is a cross platform travel application. Users can look for hotels,restaurants and popular places to visit. The app is backed up with an AI chatbot to configure travel plans. App also allows people to recognize monuments using a machine learning model. Apart from this people can save their travel stories. The app is integrated with some other features as well.
 Apps are boring until they have animation in them. Trevo comes with a user friendly UI backed up with good animations.
 
 # Features!
